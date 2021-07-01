@@ -1,22 +1,27 @@
-import './App.css';
-import { UserProvider } from './utils/UserState';
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import User from './pages/User';
+import Books from "./pages/Books";
+import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <Router>
-      {/* Providing the ability to access the state across the entire application */}
-      
-        {/* Declaring the Navbar outside the switch so it shows on all pages */}
-        <Navbar />
+      <div>
+        <Nav />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/user" component={User} />
+          <Route exact path={["/", "/books"]}>
+            <Books />
+          </Route>
+          <Route exact path="/books/:id">
+            <Detail />
+          </Route>
+          <Route>
+            <NoMatch />
+          </Route>
         </Switch>
-      
+      </div>
     </Router>
   );
 }
