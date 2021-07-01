@@ -1,28 +1,24 @@
 const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const PORT = process.env.PORT || 3000;
-
-const Workout = require("./models/adulting");
 const app = express();
-
-app.use(logger("dev"));
+const Routes = require("./routes/index.js");
+const connectDb = require("./config/db");
+require('dotenv').config();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(Routes);
+connectDb();
 
-app.use(express.static("public"));
+const PORT = process.env.PORT || 4000;
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adultingdb", {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+// Serve static build in production
+if (process.env.NODE_ENV === 'production') {
+    //Set static folder
+    app.use(express.static('client/build'));
+    //Send the build of react to every URL in production
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    })
+};
 
-app.use(require("./routes/api.js"));
-app.use(require('./routes/views.js'));
-
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-});
-
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
