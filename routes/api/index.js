@@ -1,7 +1,7 @@
 const router = require("express").Router();
+const bookRoutes = require("./books");
 
-//Requiring the js page to the right root routes
-router.use("/user", require("./user.js"));
-router.use("/auth", require("./auth.js"));
+// Book routes
+router.use("/books", bookRoutes);
 
 module.exports = router;
