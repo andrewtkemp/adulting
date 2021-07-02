@@ -27,11 +27,20 @@ router.put('/:id', (req, res) => {
 });
 
 router.put('/:id/:activityId', async(req, res) => {
-    const response = await User.findOneAndUpdate({_id: req.params.activitiyId}, { completed: req.body.completed }, {
-        new: true,
-        upsert: true // Make this update into an upsert
-      })
-    res.json(response)
+    const response = await User.findOne({ "_id" : req.params.id});
+    const act = await response.activities.map((a) => {
+      console.log(String(a._id) === req.params.activityId)
+      if (String(a._id) === req.params.activityId) {
+        a.completed = req.body.completed;
+        return a;
+      } else {
+        return a;
+      }
+    });
+    const updatedUser = await User.findOneAndUpdate({_id: req.params.id}, {
+      $set:{ activities:act }
+    })
+    res.json(updatedUser)
 });
 
 module.exports = router;
