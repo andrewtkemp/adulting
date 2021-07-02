@@ -7,29 +7,29 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-function Books() {
+function Activities() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
+  const [activities, setActivities] = useState([])
   const [formObject, setFormObject] = useState({})
 
-  // Load all books and store them with setBooks
+  // Load all books and store them with setActivities
   useEffect(() => {
-    loadBooks()
+    loadActivities()
   }, [])
 
   // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
+  function loadActivities() {
+    API.getActivities()
       .then(res => 
-        setBooks(res.data)
+        setActivities(res.data)
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
+  // Deletes a book from the database with a given id, then reloads Activities from the db
   function deleteBook(id) {
     API.deleteBook(id)
-      .then(res => loadBooks())
+      .then(res => loadActivities())
       .catch(err => console.log(err));
   }
 
@@ -40,7 +40,7 @@ function Books() {
   };
 
   // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
+  // Then reload Activities from the database
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
@@ -49,7 +49,7 @@ function Books() {
         author: formObject.author,
         synopsis: formObject.synopsis
       })
-        .then(res => loadBooks())
+        .then(res => loadActivities())
         .catch(err => console.log(err));
     }
   };
@@ -59,46 +59,46 @@ function Books() {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>What Activities Did I Do?</h1>
             </Jumbotron>
             <form>
               <Input
                 onChange={handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+                name="date"
+                placeholder="Date (required)"
               />
               <Input
                 onChange={handleInputChange}
-                name="author"
-                placeholder="Author (required)"
+                name="activity"
+                placeholder="Activity (required)"
               />
-              <TextArea
+              <Input
                 onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
+                name="time"
+                placeholder="Amount of time (required)"
               />
               <FormBtn
                 disabled={!(formObject.author && formObject.title)}
                 onClick={handleFormSubmit}
               >
-                Submit Book
+                Submit Activity
               </FormBtn>
             </form>
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Activities On My List</h1>
             </Jumbotron>
-            {books.length ? (
+            {activities.length ? (
               <List>
-                {books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                {activities.map(actiity => (
+                  <ListItem key={actiity._id}>
+                    <Link to={"/actiities/" + actiity._id}>
                       <strong>
-                        {book.title} by {book.author}
+                        {actiity.title} by {actiity.author}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    <DeleteBtn onClick={() => deleteActivity(activity._id)} />
                   </ListItem>
                 ))}
               </List>
@@ -112,4 +112,4 @@ function Books() {
   }
 
 
-export default Books;
+export default Activities;
