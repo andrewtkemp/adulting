@@ -27,7 +27,7 @@ function Activities() {
   };
 
   // Deletes a book from the database with a given id, then reloads Activities from the db
-  function deleteBook(id) {
+  function deleteActivity(id) {
     API.deleteBook(id)
       .then(res => loadActivities())
       .catch(err => console.log(err));
@@ -62,15 +62,20 @@ function Activities() {
               <h1>What Activities Did I Do?</h1>
             </Jumbotron>
             <form>
+            <Input
+                onChange={handleInputChange}
+                name="category"
+                placeholder="Category (required)"
+              />
+               <Input
+                onChange={handleInputChange}
+                name="activity"
+                placeholder="Activity (required)"
+              />
               <Input
                 onChange={handleInputChange}
                 name="date"
                 placeholder="Date (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="activity"
-                placeholder="Activity (required)"
               />
               <Input
                 onChange={handleInputChange}
@@ -91,14 +96,14 @@ function Activities() {
             </Jumbotron>
             {activities.length ? (
               <List>
-                {activities.map(actiity => (
-                  <ListItem key={actiity._id}>
-                    <Link to={"/actiities/" + actiity._id}>
+                {activities.map(activity => (
+                  <ListItem key={activity._id}>
+                    <Link to={"/actiities/" + activity._id}>
                       <strong>
-                        {actiity.title} by {actiity.author}
+                        {activity.title} by {activity.author}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteActivity(activity._id)} />
+                    {<DeleteBtn onClick={() => deleteActivity(activity._id)} />}
                   </ListItem>
                 ))}
               </List>
