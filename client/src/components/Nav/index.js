@@ -17,7 +17,7 @@ function Nav() {
     
     <nav 
     class="peach" style="padding: 0px 10px;">
-    class="nav-wrapper">
+    class="nav-wrapper"
       <a  href="#" clss="brand-logo">Aduling App</a>
 
       <a href="#" class="sidenav-tigger" data-target="mobile-nav">
