@@ -26,7 +26,7 @@ router.put('/:id', (req, res) => {
         });
 });
 
-router.put('/:id/:activityId', async(req, res) => {
+router.put('/:id/:activityId', async (req, res) => {
     const response = await User.findOne({ "_id" : req.params.id});
     const act = await response.activities.map((a) => {
       console.log(String(a._id) === req.params.activityId)

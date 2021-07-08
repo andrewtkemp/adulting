@@ -1,3 +1,8 @@
-module.exports = {
-  Activities: require("./activities")
-};
+
+const Activites = require('./Activities');
+
+
+
+module.exports = { Activites };
+
+
