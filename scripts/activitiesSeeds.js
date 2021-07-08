@@ -100,42 +100,42 @@ const activitiesSeed = [
     level: 1
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Balance and rotate tires",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Buy new tires",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Oil change",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Inspection and registration",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Replace filters",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Tune up",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Wash the car",
     level: 2
   },
   {
-    category: "Car Maintenance",
+    category: "Automobile",
     activity: "Vacuum the car",
     level: 2
   },
@@ -265,32 +265,42 @@ const activitiesSeed = [
     level: 2
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
     activity: "Schedule a haircut",
     level: 1
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
     activity: "Meal planning",
     level: 2
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
     activity: "Make a grocery list",
     level: 1
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
     activity: "Clean your jewelry",
     level: 1
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
     activity: "Buy your own clothes",
     level: 2
   },
   {
-    category: "Personal Care",
+    category: "Fitness/personal care",
+    activity: "Workout",
+    level: 3
+  },
+  {
+    category: "Fitness/personal care",
+    activity: "Try new wellness trend",
+    level: 2
+  }, 
+  {
+    category: "Fitness/personal care",
     activity: "Get up when the alarm goes off, don't hit the snooze button",
     level: 1
   },
@@ -370,6 +380,21 @@ const activitiesSeed = [
     level: 2
   },
   {
+    category: "Self Care",
+    activity: "Journal",
+    level: 2
+  },
+  {
+    category: "Self Care",
+    activity: "Meditate/pray",
+    level: 2
+  },
+  {
+    category: "Self Care",
+    activity: "Set intentions for the month",
+    level: 2
+  },
+  {
     category: "Work",
     activity: "Network with one new person",
     level: 3
@@ -399,6 +424,11 @@ const activitiesSeed = [
     activity: "Jury duty",
     level: 2
   },
+  {
+    category: "Custom",
+    activity: "",
+    level: 2
+  }, 
 ];
 
 db.Categories.deleteMany({})
