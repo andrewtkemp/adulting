@@ -4,64 +4,37 @@ function Activities() {
 
 
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Activities Did I Do?</h1>
-            </Jumbotron>
+      <div className="container">
+        <div className="row">
+            <div className="col l6">
+              <h2 className="title">What did I do today?</h2>
             <form>
-            <Input
-                onChange={handleInputChange}
-                name="category"
-                placeholder="Category (required)"
-              />
-               <Input
-                onChange={handleInputChange}
-                name="activity"
-                placeholder="Activity (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="date"
-                placeholder="Date (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="time"
-                placeholder="Amount of time (required)"
-              />
-              <FormBtn
-                disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-              >
-                Submit Activity
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Activities On My List</h1>
-            </Jumbotron>
-            {activities.length ? (
-              <List>
-                {activities.map(activity => (
-                  <ListItem key={activity._id}>
-                    <Link to={"/actiities/" + activity._id}>
-                      <strong>
-                        {activity.title} by {activity.author}
-                      </strong>
-                    </Link>
-                    {<DeleteBtn onClick={() => deleteActivity(activity._id)} />}
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+                <select name="category" id="category">
+                    <option value="">choose a category:</option>
+                  <option value="automobile">automobile</option>
+                  <option value="charity">charity</option>
+                  <option value="chores">chores</option>
+                  <option value="digital">digital</option>
+                  <option value="finances">finances</option>
+                  <option value="fitness">fitness/personal care</option>
+                  <option value="health">health</option>
+                  <option value="home">home maintenance</option>
+                  <option value="miscellaneous">miscellaneous</option>
+                  <option value="organization/paperwork">organizaiton/paperwork</option>
+                  <option value="personal">personal care</option>
+                  <option value="pet">pet care</option>
+                  <option value="self">self care</option>
+                  <option value="social">social</option>
+                  <option value="work">work</option>
+                 </select>
+                 <input placeholder="activity"></input>
+                <input placeholder="time"></input>
+                <input type="date" id="date" name="date"></input>
+                <input type="submit"></input>
+                </form>
+                </div>
+                </div>
+                </div>
     );
   }
 
