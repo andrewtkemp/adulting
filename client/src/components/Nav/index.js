@@ -1,8 +1,11 @@
 import React from "react";
 
 
-  
+//<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
+
+  
             
 function Nav() {
   return (
@@ -26,14 +29,6 @@ function Nav() {
     </nav>
     
   );
-}
-{
-  <ul className="sidenav"  id=" modile-demo">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="#">Task</a></li>
-        <li><a href="#">Ranking</a></li>
-  </ul>
 }
 
 export default Nav;

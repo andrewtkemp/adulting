@@ -2,7 +2,8 @@ const router = require('express').Router();
 const User = require('../../models/User');
 
 router.post('/', (req, res) => {
-    User.create(req.body)
+  console.log(req.body)  
+  User.create(req.body)
     .then((dbUser) => {
       res.json(dbUser);
     })
