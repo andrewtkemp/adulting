@@ -4,14 +4,23 @@ import Activities from "./pages/Activities";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup"
+
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        
         <Switch>
-          <Route exact path={["/", "/activities"]}>
+         <Route exact path= "/login">
+           <Login/>
+         </Route>
+        <Route exact path= "/signup">
+          <Signup/>
+        </Route>
+        <Route exact path={["/", "/activities"]}>
             <Activities />
           </Route>
           <Route exact path="/activities/:id">
