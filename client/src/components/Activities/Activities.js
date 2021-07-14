@@ -1,4 +1,5 @@
 import React from "react";
+import "./ActivitiesStyle.css"
 
 function Activities() {
   const activities = [
