@@ -3,7 +3,7 @@ import "./ProfileStyle.css";
 
 function Profile() {
   return (
-      <div className="col s12 m12 l6 profileCard">
+      <div className="col s12 m12 l4 profileCard">
         <div className="card">
           <div className="card-content">
             <span className="card-title">Profile</span>
