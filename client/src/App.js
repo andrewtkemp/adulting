@@ -9,9 +9,18 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/login" pages={Login} />
-          <Route exact path="/signup" pages={Signup} />
-          <Route exact path="/Home" pages={Home} />
+          <Route exact path={["/", "/login"]}>
+            <Login />
+          </Route>
+          <Route exact path={["/login", "/login"]}>
+            <Login />
+          </Route>
+          <Route exact path={["/signup", "/signup"]}>
+            <Signup />
+          </Route>
+          <Route exact path={["/home", "/home"]}>
+            <Home />
+          </Route>
         </Switch>
       </div>
     </Router>
