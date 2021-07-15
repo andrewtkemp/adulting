@@ -3,8 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import "./Signup.css";
 
+import { Redirect } from "react-router-dom";
 
-import {Redirect} from "react-router-dom";
 
 
 
