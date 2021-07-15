@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const expressSession = require('express-session');
 const bodyParser = require("body-parser");
+const passport = require('passport')
 const LocalStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
 const User = require('./models/User');

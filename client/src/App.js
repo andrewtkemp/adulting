@@ -1,31 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Activities from "./pages/Activities";
+import Home from "./pages/Home";
 import Login from "./pages/login";
-import Signup from "./pages/Signup"
-
+import Signup from "./pages/Signup";
 
 function App() {
   return (
     <Router>
       <div>
-        
         <Switch>
-         <Route exact path= "/login">
-           <Login/>
-         </Route>
-        <Route exact path= "/signup">
-          <Signup/>
-        </Route>
-        <Route exact path={["/", "/activities"]}>
-            <Activities />
-          </Route>
-          <Route exact path="/activities/:id">
-            
-          </Route>
-          <Route>
-            
-          </Route>
+          <Route exact path="/login" pages={Login} />
+          <Route exact path="/signup" pages={Signup} />
+          <Route exact path="/Home" pages={Home} />
         </Switch>
       </div>
     </Router>
