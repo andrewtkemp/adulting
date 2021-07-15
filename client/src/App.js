@@ -8,7 +8,11 @@ import Signup from "./pages/Signup";
 function App() {
   return (
     <Router>
-      <div>
+
+      <div className="container">
+        
+    <div>
+
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
