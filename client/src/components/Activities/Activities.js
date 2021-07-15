@@ -1,5 +1,6 @@
 import React from "react";
-import "./ActivitiesStyle.css"
+import "./ActivitiesStyle.css";
+import "../../assets/adultingstatus.png";
 
 function Activities() {
   const activities = [
@@ -510,62 +511,78 @@ function Activities() {
   };
   // need to make this work //
   const renderActivity = (activity, index) => {
-    console.log('index:', index);
+    console.log("index:", index);
     return <option value="" key=""></option>;
-    
   };
 
   console.log("HELLO FROM ACTIVITIES!");
   return (
-    <div className="container">
-      <div className="row">
-        <div>
-          <h2 className="title">What did I do today?</h2>
-          <div className="input-field col s12 m6 l6">
-            <select name="category" id="category" onChange={handleActivity}>
-              <option value="" disabled selected>choose a category:</option>
-              <option value="automobile">automobile</option>
-              <i className="fas fa-car"></i>
-              <option value="charity">charity</option>
-              <i class="fas fa-hand-holding-heart"></i>
-              <option value="chores">chores</option>
-              <i class="fas fa-sink"></i>
-              <option value="digital">digital</option>
-              <i class="fas fa-desktop"></i>
-              <option value="finances">finances</option>
-              <i class="fas fa-dollar-sign"></i>
-              <option value="fitness">fitness/personal care</option>
-              <i class="fas fa-heartbeat"></i>
-              <option value="health">health</option>
-              <i class="fas fa-file-medical-alt"></i>
-              <option value="home">home maintenance</option>
-              <i class="fas fa-home"></i>
-              <option value="miscellaneous">miscellaneous</option>
-              <i class="fa-solid fa-globe"></i>
-              <option value="organization/paperwork">organizaiton/paperwork</option>
-              <i class="fas fa-folder"></i>
-              <option value="personal">personal care</option>
-              <i class="fas fa-user-check"></i>
-              <option value="pet">pet care</option>
-              <i class="fas fa-paw"></i>
-              <option value="self">self care</option>
-              <i class="fas fa-praying-hands"></i>
-              <option value="social">social</option>
-              <i class="fas fa-comment-alt"></i>
-              <option value="work">work</option>
-              <i class="fas fa-briefcase"></i>
-            </select>
-            <label>Category</label>
-            <select>{filterActivity.map(renderActivity)}</select>
+    <div className="col s12 m12 l6 offset-s6 activityCard">
+      <div className="card">
+        <div className="card-image">
+          <img src={require("../../assets/adultingstatus.png")}></img>
+          <span className="card-title">What did I do today?</span>
+          <a className="btn-floating halfway-fab waves-effect waves-light red">
+            <i className="material-icons">add</i>
+          </a>
+        </div>
+        <div className="card-content">
+          <select name="category" id="category" onChange={handleActivity}>
+            <option value="" disabled selected>
+              choose a category:
+            </option>
+            <option value="automobile">automobile</option>
+            <i classNameName="fas fa-car"></i>
+            <option value="charity">charity</option>
+            <i class="fas fa-hand-holding-heart"></i>
+            <option value="chores">chores</option>
+            <i class="fas fa-sink"></i>
+            <option value="digital">digital</option>
+            <i class="fas fa-desktop"></i>
+            <option value="finances">finances</option>
+            <i class="fas fa-dollar-sign"></i>
+            <option value="fitness">fitness/personal care</option>
+            <i class="fas fa-heartbeat"></i>
+            <option value="health">health</option>
+            <i class="fas fa-file-medical-alt"></i>
+            <option value="home">home maintenance</option>
+            <i class="fas fa-home"></i>
+            <option value="miscellaneous">miscellaneous</option>
+            <i class="fa-solid fa-globe"></i>
+            <option value="organization/paperwork">organizaiton/paperwork</option>
+            <i class="fas fa-folder"></i>
+            <option value="personal">personal care</option>
+            <i class="fas fa-user-check"></i>
+            <option value="pet">pet care</option>
+            <i class="fas fa-paw"></i>
+            <option value="self">self care</option>
+            <i class="fas fa-praying-hands"></i>
+            <option value="social">social</option>
+            <i class="fas fa-comment-alt"></i>
+            <option value="work">work</option>
+            <i class="fas fa-briefcase"></i>
+          </select>
+          <label>Category</label>
+          <select>{filterActivity.map(renderActivity)}</select>
 
+          <input placeholder="activity"></input>
+          <input placeholder="time"></input>
+          <input type="date" id="date" name="date"></input>
+        </div>
+      <div className="container">
+        <div className="row"><h5>I'm getting so much done today!</h5>
+          <div className="col s12 m12 l6 todayActivities">
+            <input placeholder="category"></input>
+            </div>
+            <div className="col s12 m12 l6 todayActivities">
             <input placeholder="activity"></input>
-            <input placeholder="time"></input>
-            <input type="date" id="date" name="date"></input>
-            <input type="submit"></input>
-          </div>
+            </div>
         </div>
       </div>
+      </div>
     </div>
+
+
   );
 }
 

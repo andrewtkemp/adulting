@@ -1,0 +1,9 @@
+* {
+    --green: #99ffb6;
+    --peach: #FF8A65;
+    --cream: rgb(255, 235, 210);
+}
+
+body {
+    background-color: var(--cream);
+}

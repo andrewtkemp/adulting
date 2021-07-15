@@ -9,9 +9,11 @@ function Home() {
     <div>
       <Nav />
       <main className="main-container" id="home">
-        <Activities />
-        <Awards />
-        <Profile />
+        <div className="row">
+          <Activities />
+          <Profile />
+          <Awards />
+        </div>
       </main>
     </div>
   );
