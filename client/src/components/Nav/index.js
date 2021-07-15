@@ -9,7 +9,7 @@ function Nav() {
   return (
     
     <nav 
-    className="#ff8a65 deep-orange lighten-2, nav-wrapper"  style="padding: 0px 10px;">
+    className="peach nav-wrapper">
       <a  href="#home" className="brand-logo">Aduling App</a>
 
       <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
@@ -20,9 +20,7 @@ function Nav() {
      <ul className= "right hide-on-med-and-down">  
         <li><a href="#home">Home</a></li>
         {/* <li><a href="#logout">Logout</a></li> */}
-        
-
-
+       
      </ul>
     </nav>
     

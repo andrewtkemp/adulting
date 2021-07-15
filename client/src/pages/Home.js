@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <Nav />
-      <main className="main-container">
+      <main className="main-container" id="home">
         <Activities />
         <Awards />
         <Profile />
