@@ -510,10 +510,12 @@ function Activities() {
   };
   // need to make this work //
   const renderActivity = (activity, index) => {
-    console.log(renderActivity);
+    console.log('index:', index);
     return <option value="" key=""></option>;
+    
   };
 
+  console.log("HELLO FROM ACTIVITIES!");
   return (
     <div className="container">
       <div className="row">
