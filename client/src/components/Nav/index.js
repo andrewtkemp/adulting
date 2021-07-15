@@ -28,13 +28,12 @@ function Nav() {
     
   );
 }
-{
-  <ul className="sidenav"  id=" modile-demo">
-        <li><a href="#home">home</a></li>
-        {/* <li><a href="#logout">Logout</a></li> */}
+
+ // <ul className="sidenav"  id=" modile-demo">
+  //      <li><a href="#home">home</a></li>
+        // {/* <li><a href="#logout">Logout</a></li> */}
 
   
-  </ul>
-}
+
 
 export default Nav;
