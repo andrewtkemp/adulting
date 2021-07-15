@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./Signup.css";
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 function Signup(props) {

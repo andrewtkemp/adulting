@@ -8,7 +8,7 @@ router.route("/")
   .get(activitiesController.findAll)
   .post(activitiesController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/activities/:id"
 router
   .route("/:id")
   .get(activitiesController.findById)
