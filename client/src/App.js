@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/activities" component={Activities} />
         </Switch>
       </div>
+      </div>
     </Router>
   );
 }

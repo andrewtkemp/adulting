@@ -11,20 +11,18 @@ function Nav() {
   return (
     
     <nav 
-    className="peach nav-wrapper"  style="padding: 0px 10px;">
-      <a  href="#" className="brand-logo">Aduling App</a>
+    className="peach nav-wrapper">
+      <a  href="#home" className="brand-logo">Aduling App</a>
 
-      <a href="#" className="sidenav-tigger" data-target="mobile-nav">
+      <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
         <i className="material-icons">menu</i>
       </a>
 
         React Reading List
      <ul className= "right hide-on-med-and-down">  
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Logout</a></li>
-        <li><a href="#">Task</a></li>
-        <li><a href="#">Ranking</a></li>
-
+        <li><a href="#home">Home</a></li>
+        {/* <li><a href="#logout">Logout</a></li> */}
+       
      </ul>
     </nav>
     
