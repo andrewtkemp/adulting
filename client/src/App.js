@@ -8,7 +8,7 @@ import Signup from "./pages/Signup"
 function App() {
   return (
     <Router>
-      <div>
+      <div className="container">
         
         <Switch>
          <Route exact path= "/login">
