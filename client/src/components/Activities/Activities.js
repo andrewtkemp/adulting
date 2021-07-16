@@ -1,6 +1,6 @@
 import React from "react";
 import "./ActivitiesStyle.css";
-import "../../assets/adultingStatus.png";
+import adultingStatus from "../../assets/adultingStatus.png";
 
 function Activities() {
   const activities = [
@@ -520,7 +520,7 @@ function Activities() {
     <div className="col s12 m12 l8 offset-s6 activityCard">
       <div className="card">
         <div className="card-image">
-          <img src={require("../../assets/adultingStatus.png")}></img>
+          <img src={adultingStatus} alt="adulting status bar"></img>
           <span className="card-title">What did I do today?</span>
           <a className="btn-floating halfway-fab waves-effect waves-light red">
             <i className="material-icons">add</i>
