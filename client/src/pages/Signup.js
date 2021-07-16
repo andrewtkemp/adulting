@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./Signup.css";
-
+import signUpPic from "../assets/adultingStatus.png"
 import { Redirect } from "react-router-dom";
 
 
@@ -36,7 +36,8 @@ function Signup(props) {
 
     return (
         <div>
-            <div className="row">
+     <img src={signUpPic} className="materialboxed" width="325" />
+        <div className="row">
                 <div className="input-field col s6">
                     <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
                     <label for="first_name"></label>
