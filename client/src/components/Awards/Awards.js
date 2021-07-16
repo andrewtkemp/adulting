@@ -3,7 +3,7 @@ import "./AwardsStyle.css";
 
 function Awards() {
   return (
-    <div className="col s12 m12 l6 awardCard">
+    <div className="col s12 m12 l4 awardCard">
       <div className="card">
         <div className="card-content">
           <span className="card-title">Awards</span>

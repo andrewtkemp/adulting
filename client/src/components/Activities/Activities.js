@@ -517,7 +517,7 @@ function Activities() {
 
   console.log("HELLO FROM ACTIVITIES!");
   return (
-    <div className="col s12 m12 l6 offset-s6 activityCard">
+    <div className="col s12 m12 l8 offset-s6 activityCard">
       <div className="card">
         <div className="card-image">
           <img src={require("../../assets/adultingstatus.png")}></img>
@@ -569,20 +569,22 @@ function Activities() {
           <input placeholder="time"></input>
           <input type="date" id="date" name="date"></input>
         </div>
-      <div className="container">
-        <div className="row"><h5>I'm getting so much done today!</h5>
-          <div className="col s12 m12 l6 todayActivities">
-            <input placeholder="category"></input>
+        <div className="container">
+          <div className="row">
+            <h5>I'm getting so much done today!</h5>
+            <div className="col s12 m12 l5 todayActivities">
+              <input placeholder="category"></input>
             </div>
-            <div className="col s12 m12 l6 todayActivities">
-            <input placeholder="activity"></input>
+            <div className="col s12 m12 l5 todayActivities">
+              <input placeholder="activity"></input>
             </div>
+            <div className="col s12 m12 l2 todayActivities">
+              <input placeholder="points earned"></input>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
     </div>
-
-
   );
 }
 
