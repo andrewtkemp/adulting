@@ -51,7 +51,7 @@ function Login(props) {
                     <input name="password" placeholder="Password" onChange={e => setPassword(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
                 </div>
                 <button className="submit" onClick={handleSubmit}>Submit </button>
-
+               <span className="black-text"></span>
             </div>
             
             
