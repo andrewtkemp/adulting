@@ -22,7 +22,7 @@ function Login(props) {
                 { withCredentials: true }
             )
             .then(response => {
-
+                console.log(response);
             })
             .catch(error => {
                 console.log("login error", error);

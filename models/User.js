@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const LocalStrategy = require("passport-local");
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -40,5 +42,7 @@ const UserSchema = new Schema({
 });
 
 const User = mongoose.model("User", UserSchema);
+
+
 
 module.exports = User;

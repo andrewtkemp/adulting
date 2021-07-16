@@ -6,13 +6,12 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const expressSession = require('express-session');
 const bodyParser = require("body-parser");
-const passport = require('passport')
+const passport = require('passport');
 const LocalStrategy = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
 const User = require('./models/User');
-
+require('./routes/passportLocal.js')();
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Connect to the Mongo DB
@@ -34,10 +33,6 @@ app.use(routes);
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 // Start the API server
