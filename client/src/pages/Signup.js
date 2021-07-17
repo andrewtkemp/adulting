@@ -27,7 +27,8 @@ function Signup(props) {
             )
             .then(response => {
                 console.log(response)
-                return (<Redirect to="/activities" />)
+                // window.location.replace = '/activities';
+                return (<Redirect to="/home" />)
             })
             .catch(error => {
                 console.log("user not added", error);
@@ -35,24 +36,38 @@ function Signup(props) {
     }
 
     return (
-        <div>
-     <img src={signUpPic} className="materialboxed" width="325" />
+       
+       <div className= "center-align" >
+           <div className= "row">
+     <img src={signUpPic} className="materialboxed" width="325"  />
         <div className="row">
-                <div className="input-field col s6">
+                <div className="input-field col s5">
                     <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
                     <label for="first_name"></label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s5">
                     <input name="newLastName" onChange={e => setnewLastName(e.target.value)} placeholder= "Last Name" id="last_name" type="text" className="validate" />
                     <label for="last_name"></label>
                 </div>
             </div>
-            <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} />
-            <input name="newLastName" onChange={e => setnewLastName(e.target.value)} />
-            <input name="nickname" onChange={e => setnewNickName(e.target.value)} />
-            <input name="newEmail" onChange={e => setnewEmail(e.target.value)} />
-            <input name="newPassword" onChange={e => setnewPassword(e.target.value)} />
-            <button onClick={handleSubmit}>Start Adulting Today!</button>
+           <div className= "row">
+            <div className="input-field col s5">
+                    <input name="nickname" onChange={e => setnewNickName(e.target.value)} placeholder= "Nickname" id="nickname" type="text" className="validate" />
+                    <label for="nickname"></label>
+                </div>
+                <div className="input-field col s5">
+                    <input name="email" onChange={e => setnewEmail(e.target.value)} placeholder= "Email" id="email" type="text" className="validate" />
+                    <label for="email"></label>
+                </div>
+
+                <div className="input-field col s5">
+                    <input name="password" onChange={e => setnewPassword(e.target.value)} placeholder= "Password" id="password" type="text" className="validate" />
+                    <label for="password"></label>
+                </div>
+            </div>
+            </div>
+            <button  className= "submit" onClick={handleSubmit}>Start Adulting Today!</button>
+            
         </div>
     );
 }
