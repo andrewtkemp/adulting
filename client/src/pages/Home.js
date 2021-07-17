@@ -2,16 +2,18 @@ import React from "react";
 import Nav from "../components/Nav/index";
 import Activities from "../components/Activities/Activities";
 import Awards from "../components/Awards/Awards";
-import Profile from "../components/Profile/Profile";
+import Status from "../components/Status/Status";
 
 function Home() {
   return (
     <div>
       <Nav />
       <main className="main-container" id="home">
-        <Activities />
-        <Awards />
-        <Profile />
+        <div className="row">
+          <Activities />
+          <Status />
+          <Awards />
+        </div>
       </main>
     </div>
   );

@@ -9,7 +9,7 @@ function Nav() {
   return (
     
     <nav 
-    className="peach nav-wrapper">
+    className="#69f0ae green accent-2 nav-wrapper">
       <a  href="#home" className="brand-logo">Aduling App</a>
 
       <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
