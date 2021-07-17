@@ -28,7 +28,7 @@ function Signup(props) {
             .then(response => {
                 console.log(response)
                 // window.location.replace = '/activities';
-                return (<Redirect to="/allactivities" />)
+                return (<Redirect to="/home" />)
             })
             .catch(error => {
                 console.log("user not added", error);
