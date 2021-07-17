@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+## ABOUT 
+  Gee wize! Who knew being an "adult" would actuly stink and be so time comsuming with things that are just so boring!! Why cant everything be just like a game or like in kindergarden!! You rember when  we earn points and awards for accomplising task? With  the "adulting" app. You gain experience every time you do something that's considered "adulting", like spending 30 minutes dealing with a customer service issue, answering your email, etc. You level up and gain rewards as you get more points. There could be milestones like getting a Costco membership, buying your own car
 
 ## Table of Contents
 
