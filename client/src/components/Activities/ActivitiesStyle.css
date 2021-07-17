@@ -1,0 +1,14 @@
+.card-image {
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h5 {
+  color: var(--peach);
+}
+
+.card-title {
+  color: #00e676;
+}
