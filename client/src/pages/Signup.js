@@ -35,18 +35,31 @@ function Signup(props) {
     }
 
     return (
-        <div>
-     <img src={signUpPic} className="materialboxed" width="325" />
+        <div >
+     <img src={signUpPic} className="materialboxed" width="325"  />
         <div className="row">
-                <div className="input-field col s6">
+                <div className="input-field col s5">
                     <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
                     <label for="first_name"></label>
                 </div>
-                <div className="input-field col s6">
+                <div className="input-field col s5">
                     <input name="newLastName" onChange={e => setnewLastName(e.target.value)} placeholder= "Last Name" id="last_name" type="text" className="validate" />
                     <label for="last_name"></label>
                 </div>
             </div>
+           <div className= "row">
+            <div className="input-field col s5">
+                    <input name="nickname" onChange={e => setnewNickName(e.target.value)} placeholder= "Nickname" id="nickname" type="text" className="validate" />
+                    <label for="last_name"></label>
+                </div>
+                <div className="input-field col s5">
+                    <input name="email" onChange={e => setnewEmail(e.target.value)} placeholder= "Email" id="email" type="text" className="validate" />
+                    <label for="last_name"></label>
+                </div>
+           
+           </div>
+          
+          
             <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} />
             <input name="newLastName" onChange={e => setnewLastName(e.target.value)} />
             <input name="nickname" onChange={e => setnewNickName(e.target.value)} />
