@@ -16,9 +16,9 @@ function Nav() {
         <i className="material-icons">menu</i>
       </a>
 
-        React Reading List
+     
      <ul className= "right hide-on-med-and-down">  
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home"></a></li>
         {/* <li><a href="#logout">Logout</a></li> */}
        
      </ul>
