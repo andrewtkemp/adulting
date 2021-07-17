@@ -15,7 +15,7 @@
   -Mongoose
   -Express
   -*Materialize - not talked about in class
-    -*Material UI
+  -*Material UI
   *Node packages we haven't used before: 
     -passport
     -passport-local
