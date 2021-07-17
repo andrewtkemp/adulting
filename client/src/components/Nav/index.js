@@ -2,7 +2,7 @@ import React from "react";
 // home tag from 
 
 
-  
+
 
             
 function Nav() {
@@ -10,9 +10,9 @@ function Nav() {
     
     <nav 
     className="#69f0ae green accent-2 nav-wrapper">
-      <a  href="#home" className="brand-logo">Aduling App</a>
-
-      <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
+      <a  href="#home" className="brand-logo center">Adultingg App</a>
+      <ul id="nav-mobile" className="left hide-on-med-and-down"></ul>
+        <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
         <i className="material-icons">menu</i>
       </a>
 
