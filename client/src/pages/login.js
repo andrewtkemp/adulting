@@ -48,20 +48,22 @@ function Login(props) {
                 </div>
                 <div className="input-field ">
                     <i className="material-icons prefix">security</i>
-                    <input name="password" placeholder="Password" onChange= {e => setPassword(e.target.value)}id="icon_prefix" type="text" className="validate"></input>
+                    <input name="password" placeholder="Password" onChange={e => setPassword(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
                 </div>
-                    <button onClick={handleSubmit}>Submit </button>
-              
-                </div>
-                <div>
-                <Link className="sign" to="/signup">Create an Account</Link>
-                </div>
+                <button className="submit" onClick={handleSubmit}>Submit </button>
+
             </div>
+            
+            
+            <div>
+                <Link className="submit" to="/signup">Create an Account</Link>
+            </div>
+        </div>
 
 
 
 
-        
+
 
     );
 }
