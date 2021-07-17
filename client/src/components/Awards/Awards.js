@@ -7,7 +7,7 @@ function Awards() {
       <div className="card">
         <div className="card-content">
           <span className="card-title">Awards</span>
-          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+          <p>This is where we will show the awards that have been achieved.</p>
         </div>
         <div className="card-action">
           <a href="#">This is a link</a>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./ActivitiesStyle.css";
-import "../../assets/adultingStatus.png";
+import adultingStatus from "../../assets/adultingStatus.png";
 
 function Activities() {
   const activities = [
@@ -517,11 +517,14 @@ function Activities() {
 
   console.log("HELLO FROM ACTIVITIES!");
   return (
+    <div><h5>Enter your activities for today by selecting a category, then an activity.  Your points will be automatically calculated when you enter the amount of time you spent doing your adult acticity. Then enter the date to begin earning awards today!</h5>
     <div className="col s12 m12 l8 offset-s6 activityCard">
       <div className="card">
         <div className="card-image">
-          <img src={require("../../assets/adultingStatus.png")}></img>
-          <span className="card-title">What did I do today?</span>
+          <img src={adultingStatus} alt="adulting status bar"></img>
+          < br/>
+          < br/>
+          <p className="card-title green-text text-accent-3">What did I do today?</p>
           <a className="btn-floating halfway-fab waves-effect waves-light red">
             <i className="material-icons">add</i>
           </a>
@@ -566,12 +569,15 @@ function Activities() {
           <select>{filterActivity.map(renderActivity)}</select>
 
           <input placeholder="activity"></input>
-          <input placeholder="time"></input>
-          <input type="date" id="date" name="date"></input>
+          <input className="col s12 m12 l5" placeholder="time"></input>
+          <div className="col s12 m12 l2"></div>
+          <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
         </div>
+        <br />
+        <br />
         <div className="container">
           <div className="row">
-            <h5>I'm getting so much done today!</h5>
+            <h5 className="center-align">I'm getting so much done!</h5>
             <div className="col s12 m12 l5 todayActivities">
               <input placeholder="category"></input>
             </div>
@@ -579,11 +585,12 @@ function Activities() {
               <input placeholder="activity"></input>
             </div>
             <div className="col s12 m12 l2 todayActivities">
-              <input placeholder="points earned"></input>
+              <input placeholder="points"></input>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

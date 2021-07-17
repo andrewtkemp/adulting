@@ -4,11 +4,11 @@ import adultingIsHard from "../assets/adultingIsHard.png";
 
 function AllActivities() {
   return (
-    <div>
+    <div id="AllActivities">
       <Nav />
       <main className="container">
         <div className="col s6 pic">
-          <img src={adultingIsHard} className="materialboxed" id="allActivitiesPic" width="325" />
+          <img src={adultingIsHard} className="materialboxed" id="allActivitiesPic" width="325" alt="adulting is hard" />
         </div>
         <div className="row">
           <div className="col s12 m12 l2 allActivities">
