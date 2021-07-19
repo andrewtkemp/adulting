@@ -19,19 +19,23 @@ function Nav() {
             <a href="/AllActivities">Activity Log</a>
           </li>
           <li>
-            <a href="/Login">Log Out</a>
+            <a href="/login">Log Out</a>
           </li>
         </ul>
       </div>
+
+
 
       <ul className="sidenav" id="mobile-demo">
         <li>
           <a href="/AllActivities">Activity Log</a>
         </li>
         <li>
-          <a href="/Login">Log Out</a>
+          <a href="/login">Log Out</a>
         </li>
       </ul>
-
+      </nav>
+  )
+}
 
 export default Nav;
