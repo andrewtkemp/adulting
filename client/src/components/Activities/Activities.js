@@ -524,11 +524,11 @@ function Activities() {
           <img src={adultingStatus} alt="adulting status bar"></img>
           < br/>
           < br/>
-          <p className="card-title green-text text-accent-3">What did I do today?</p>
           <a className="btn-floating halfway-fab waves-effect waves-light red">
             <i className="material-icons">add</i>
           </a>
         </div>
+        <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>.
         <div className="card-content">
           <select name="category" id="category" onChange={handleActivity}>
             <option value="" disabled selected>
