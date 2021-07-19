@@ -10,3 +10,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+p {
+    text-align: center;
+    font-size: large;
+}
+
+.card-title {
+    text-align: center;
+}

@@ -1,30 +1,31 @@
 import React from "react";
 import Nav from "../components/Nav/index";
-import adultingIsHard from "../assets/adultingIsHard.png";
+import "./AllActivities.css";
 
 function AllActivities() {
   return (
     <div id="AllActivities">
       <Nav />
-      <main className="container">
-        <div className="col s6 pic">
-          <img src={adultingIsHard} className="materialboxed" id="allActivitiesPic" width="325" alt="adulting is hard" />
+      <h1>Adulting:</h1>
+      <h2>
+        Harder than we all thought.
+        <br />
+        Am I right?
+      </h2>
+      <div className="row">
+        <div className="col s12 m12 l1 allActivities">
+          <input placeholder="Date"></input>
         </div>
-        <div className="row">
-          <div className="col s12 m12 l2 allActivities">
-            <input placeholder="date"></input>
-          </div>
-          <div className="col s12 m12 l4 allActivities">
-            <input placeholder="category"></input>
-          </div>
-          <div className="col s12 m12 l4 allActivities">
-            <input placeholder="activity"></input>
-          </div>
-          <div className="col s12 m12 l2 allActivities">
-            <input placeholder="points earned"></input>
-          </div>
+        <div className="col s12 m12 l4 allActivities">
+          <input placeholder="Category"></input>
         </div>
-      </main>
+        <div className="col s12 m12 l4 allActivities">
+          <input placeholder="Activity"></input>
+        </div>
+        <div className="col s12 m12 l2 allActivities">
+          <input placeholder="Points Earned"></input>
+        </div>
+      </div>
     </div>
   );
 }
