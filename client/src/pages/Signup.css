@@ -2,3 +2,15 @@ body{
     background-color:rgb(212, 172, 216);
 }
 
+.phils-house {
+    display: flex;
+    flex-direction: row-reverse;
+    /* margin: 0 auto; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.phils-form {
+    max-width: 350px;
+}
