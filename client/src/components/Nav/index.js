@@ -32,8 +32,6 @@ function Nav() {
           <a href="/Login">Log Out</a>
         </li>
       </ul>
-    </nav>
-  );
-}
+
 
 export default Nav;

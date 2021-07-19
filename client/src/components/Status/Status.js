@@ -14,14 +14,6 @@ function Status() {
         <div className="card">
           <div className="card-content">
             <span className="card-title">Status</span>
-
-
-
-
-
-
-
-
             <p>This is where we will display the user's name, their current score and level.  We will also show how many points until the next level</p>
           </div>
           <div className="card-action">
