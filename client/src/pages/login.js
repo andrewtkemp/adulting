@@ -22,7 +22,8 @@ function Login(props) {
                 { withCredentials: true }
             )
             .then(response => {
-
+                console.log(response);
+                window.location = '/home';
             })
             .catch(error => {
                 console.log("login error", error);
