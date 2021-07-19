@@ -1,37 +1,41 @@
 import React from "react";
-// home tag from 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "../../pages/Home";
+import Login from "../../pages/login";
+import AllActivities from "../../pages/AllActivities";
 
-
-
-
-            
 function Nav() {
   return (
-    
-    <nav 
-    className="#69f0ae green accent-2 nav-wrapper">
-      <a  href="#home" className="brand-logo center">Adultingg App</a>
-      <ul id="nav-mobile" className="left hide-on-med-and-down"></ul>
-        <a href="#home" className="sidenav-tigger" data-target="mobile-nav">
-        <i className="material-icons">menu</i>
-      </a>
+    <nav>
+      <div class="#69f0ae green accent-2 nav-wrapper">
+        <a href="/Home" class="brand-logo">
+          ADULTING
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="/AllActivities">Activity Log</a>
+          </li>
+          <li>
+            <a href="/login">Log Out</a>
+          </li>
+        </ul>
+      </div>
 
-     
-     <ul className= "right hide-on-med-and-down">  
-        <li><a href="#home"></a></li>
-        {/* <li><a href="#logout">Logout</a></li> */}
-       
-     </ul>
-    </nav>
-    
-  );
+
+
+      <ul className="sidenav" id="mobile-demo">
+        <li>
+          <a href="/AllActivities">Activity Log</a>
+        </li>
+        <li>
+          <a href="/login">Log Out</a>
+        </li>
+      </ul>
+      </nav>
+  )
 }
-
- // <ul className="sidenav"  id=" modile-demo">
-  //      <li><a href="#home">home</a></li>
-        // {/* <li><a href="#logout">Logout</a></li> */}
-
-  
-
 
 export default Nav;
