@@ -47,6 +47,7 @@ router.put('/:id/:activityId', async (req, res) => {
 });
 
 router.post('/login', (req, res, next) => {
+  console.log(req.body)
   passport.authenticate('local', async (err, user, info) => {
     try {
       console.log(user);

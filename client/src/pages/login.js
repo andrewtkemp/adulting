@@ -13,9 +13,10 @@ function Login(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+     console.log(email,password)
         axios
             .post(
-                "/login",
+                "api/user/login",
                 {
                     email, password
                 },
@@ -23,8 +24,7 @@ function Login(props) {
             )
             .then(response => {
                 console.log(response);
-                window.location = '/home';
-
+                window.location.replace('/home');
             })
             .catch(error => {
                 console.log("login error", error);
