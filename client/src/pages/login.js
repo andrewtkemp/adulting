@@ -16,7 +16,7 @@ function Login(props) {
      console.log(email,password)
         axios
             .post(
-                "/login",
+                "api/user/login",
                 {
                     email, password
                 },
