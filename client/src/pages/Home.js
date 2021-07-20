@@ -9,6 +9,7 @@ function Home() {
       <Nav />
       <main className="main-container" id="home">
         <div className="row">
+          {/* "dadjoke modol" */}
           <Activities />
           <Awards />
         </div>
