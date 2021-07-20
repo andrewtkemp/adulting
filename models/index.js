@@ -1,6 +1,8 @@
-// const Activites = require('./Activities');
-// module.exports = { Activites };
- 
+
 module.exports = {
     Activities: require("./activities")
+}
+
+module.exports = {
+    Log: require("./Log")
 }

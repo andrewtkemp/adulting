@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -16,26 +17,14 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  activities:
+
+  Log:
     [
-        {
-        category: {
-            type: String
-        },
-        name: {
-            type: String
-        },
-        time: {
-            type: Number
-        },
-        points: {
-            type: Number
-        },
-        completed: {
-            type: Boolean,
-            default: false
-        }
-    }
+     {
+      completedLog: {
+        type: Schema.Types.ObjectId, ref: 'Log'
+      },
+     }  
     ],
 });
 
