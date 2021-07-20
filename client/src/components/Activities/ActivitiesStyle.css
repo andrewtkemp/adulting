@@ -5,8 +5,9 @@
   margin-right: auto;
 }
 
-h5 {
+h5, h4 {
   color: var(--peach);
+  text-align: center;
 }
 
 .card-title {
