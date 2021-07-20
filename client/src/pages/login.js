@@ -23,6 +23,8 @@ function Login(props) {
             )
             .then(response => {
                 console.log(response);
+                window.location = '/home';
+
             })
             .catch(error => {
                 console.log("login error", error);
