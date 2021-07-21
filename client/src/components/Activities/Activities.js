@@ -517,20 +517,19 @@ function Activities() {
 
   console.log("HELLO FROM ACTIVITIES!");
   return (
-    <div><h5>Enter your activities for today by selecting a category, then an activity.  Your points will be automatically calculated when you enter the amount of time you spent doing your adult acticity. Then enter the date to begin earning awards today!</h5>
-    <div className="col s12 m12 l8 offset-s6 activityCard">
+    <div><h4>Start earning awards today!</h4>
+    <h5>Select a category, then activity.  
+      <br/>Enter amount of time doing activity.  
+      <br/>Enter date. 
+      < br/>Points will be calculated when time is entered.</h5>
+    <div className="col s12 m12 l8 activityCard">
       <div className="card">
         <div className="card-image">
           <img src={adultingStatus} alt="adulting status bar"></img>
-          < br/>
-          < br/>
-          <a className="btn-floating halfway-fab waves-effect waves-light red">
-            <i className="material-icons">add</i>
-          </a>
         </div>
-        <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>.
+        <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>
         <div className="card-content">
-          <select name="category" id="category" onChange={handleActivity}>
+          {/* <select name="category" id="category" onChange={handleActivity}>
             <option value="" disabled selected>
               choose a category:
             </option>
@@ -566,12 +565,17 @@ function Activities() {
             <i class="fas fa-briefcase"></i>
           </select>
           <label>Category</label>
-          <select>{filterActivity.map(renderActivity)}</select>
+          <select>{filterActivity.map(renderActivity)}</select> */}
 
           <input placeholder="activity"></input>
           <input className="col s12 m12 l5" placeholder="time"></input>
           <div className="col s12 m12 l2"></div>
           <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
+          <button class="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+        
+         
         </div>
         <br />
         <br />

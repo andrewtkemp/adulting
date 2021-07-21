@@ -28,6 +28,13 @@ const UserSchema = new Schema({
     ],
 });
 
+UserSchema.methods.checkPassword = function(password1, password2) {
+  console.log(password1, password2)
+  return true
+};
+
 const User = mongoose.model("User", UserSchema);
+
+
 
 module.exports = User;
