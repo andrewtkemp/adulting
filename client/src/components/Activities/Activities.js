@@ -568,7 +568,10 @@ function Activities() {
           <label>Category</label>
           <select>{filterActivity.map(renderActivity)}</select>
 
-          <input placeholder="activity"></input>
+         <div>
+          <a className='dropdown-trigger btn' data-target='dropdown1'>Activities</a>
+        </div>
+          {/* <input placeholder="activity"></input> */}
           <input className="col s12 m12 l5" placeholder="time"></input>
           <div className="col s12 m12 l2"></div>
           <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
