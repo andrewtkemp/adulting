@@ -1,9 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../../pages/Home";
-import Login from "../../pages/login";
-import AllActivities from "../../pages/AllActivities";
 
 function Nav() {
   const handleSubmit = (event) => {
@@ -22,7 +18,7 @@ function Nav() {
         <a href="/Home" className="brand-logo">
           ADULTING
         </a>
-        <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+        <a href="/Home" data-target="mobile-demo" className="sidenav-trigger">
           <i className="material-icons">menu</i>
         </a>
         <ul className="right hide-on-med-and-down">
