@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 function Nav() {
@@ -11,6 +11,14 @@ function Nav() {
         window.location.replace("/login");
       });
   };
+
+  useEffect(() => {
+    var elem = document.querySelector(".sidenav");
+    var instance = window.M.Sidenav.init(elem, {
+      edge: "left",
+      inDuration: 250,
+    });
+  }, []);
 
   return (
     <nav>
