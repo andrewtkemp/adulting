@@ -4,8 +4,7 @@ const User = require('../models/User');
 
 module.exports = function () {
 
-    // Configure the local strategy for use by Passport.
-    //
+    
     // The local strategy requires a `verify` function which receives the credentials
     // (`username` and `password`) submitted by the user.  The function must verify
     // that the password is correct and then invoke `cb` with a user object, which
@@ -14,7 +13,7 @@ module.exports = function () {
         "local",
         new Strategy((username, password, cb) => {
           console.log("start", username, password, cb);
-          User.find({ username: username }, (err, user) => {
+          User.findOne({ username: username }, (err, user) => {
             if (!user.length) {
               return cb(null, false);
             }

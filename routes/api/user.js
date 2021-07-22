@@ -2,6 +2,36 @@ const router = require('express').Router();
 const User = require('../../models/User');
 const passport = require('passport');
 const LocalStrategy = require("passport-local");
+const { Activities } = require('../../models');
+
+router.get('/', async (req, res) => {
+  // find all products
+  try {
+    const allUserData = await User.findAll({    });
+    res.status(200).json(allUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get one product
+router.get('/:id', async (req, res) => {
+  //find 1 product
+  try {
+    const allUserData = await User.findOne(req.params.id, {
+      include: [{ model: Activities }]
+    });
+
+    if (!allUserData) {
+      res.status(404).json({ message: 'No User found with that id!' });
+      return;
+    }
+
+    res.status(200).json(allUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', (req, res) => {
   console.log(req.body)  
