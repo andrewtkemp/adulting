@@ -2,82 +2,70 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./Signup.css";
-import signUpPic from "../assets/adultingStatus.png"
+import signUpPic from "../assets/adultingStatus.png";
 import { Redirect } from "react-router-dom";
 
-
-
-
 function Signup(props) {
-    const [newFirstName, setnewFirstName] = useState('')
-    const [newLastName, setnewLastName] = useState('')
-    const [nickname, setnewNickName] = useState('')
-    const [newEmail, setnewEmail] = useState('')
-    const [newPassword, setnewPassword] = useState('')
+  const [newFirstName, setnewFirstName] = useState("");
+  const [newLastName, setnewLastName] = useState("");
+  const [nickname, setnewNickName] = useState("");
+  const [newEmail, setnewEmail] = useState("");
+  const [newPassword, setnewPassword] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        axios
-            .post(
-                "/api/user",
-                {
-                    email: newEmail, password: newPassword, name: `${newFirstName}${newLastName}`, username: nickname
-                }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .post("/api/user", {
+        email: newEmail,
+        password: newPassword,
+        name: `${newFirstName}${newLastName}`,
+        username: nickname,
+      })
+      .then((response) => {
+        console.log(response);
+        window.location = "/home";
+        // return (<Redirect to="/home" />)
+      })
+      .catch((error) => {
+        console.log("user not added", error);
+      });
+  };
 
-            )
-            .then(response => {
-                console.log(response)
-                window.location = '/home';
-                // return (<Redirect to="/home" />)
-            })
-            .catch(error => {
-                console.log("user not added", error);
-            });
-    }
+  return (
+    <div className="center-align phils-house">
+      <div className="col s6">
+        <img src={signUpPic} className="materialboxed col s6 m6 l6" width="325" />
+      </div>
+      <div className="col s6 phils-form">
+        <div className="input-field ">
+          <input name="newFirstName" onChange={(e) => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
+          <label for="first_name"></label>
 
-    return (
+          <input name="newLastName" onChange={(e) => setnewLastName(e.target.value)} placeholder="Last Name" id="last_name" type="text" className="validate" />
+          <label for="last_name"></label>
 
-        <div className="center-align phils-house">
-            <div className="col s6">
-                <img src={signUpPic} className="materialboxed col s6 m6 l6" width="325" />
-            </div>
-            <div className="col s6 phils-form">
-                <div className="input-field ">
-                    <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
-                    <label for="first_name"></label>
+          <input name="nickname" onChange={(e) => setnewNickName(e.target.value)} placeholder="Nickname" id="nickname" type="text" className="validate" />
+          <label for="nickname"></label>
 
+          <input name="email" onChange={(e) => setnewEmail(e.target.value)} placeholder="Email" id="email" type="text" className="validate" />
+          <label for="email"></label>
 
-                    <input name="newLastName" onChange={e => setnewLastName(e.target.value)} placeholder="Last Name" id="last_name" type="text" className="validate" />
-                    <label for="last_name"></label>
-
-
-
-
-                    <input name="nickname" onChange={e => setnewNickName(e.target.value)} placeholder="Nickname" id="nickname" type="text" className="validate" />
-                    <label for="nickname"></label>
-
-
-                    <input name="email" onChange={e => setnewEmail(e.target.value)} placeholder="Email" id="email" type="text" className="validate" />
-                    <label for="email"></label>
-
-
-
-                    <input name="password" onChange={e => setnewPassword(e.target.value)} placeholder="Password" id="password" type="text" className="validate" />
-                    <label for="password"></label>
-
-                </div>
-                <button className="submit" onClick={handleSubmit}>Start Adulting Today!</button>
-            </div>
-
+          <input name="password" onChange={(e) => setnewPassword(e.target.value)} placeholder="Password" id="password" type="text" className="validate" />
+          <label for="password"></label>
         </div>
-    );
-    //     var matrixField = component.find("matrixName");
-    // matrixField.showHelpMessageIfInvalid();
-    // if(!matrixField.checkValidity()) {
-    //   // Optional message if you want
-    //   alert("Please fill out the required field."); 
-    //   return; // Don't continue past this point
-    // }
+        <button className="submit" onClick={handleSubmit}>
+          Start Adulting Today!
+        </button>
+      </div>
+    </div>
+  );
+  //     var matrixField = component.find("matrixName");
+  // matrixField.showHelpMessageIfInvalid();
+  // if(!matrixField.checkValidity()) {
+  //   // Optional message if you want
+  //   alert("Please fill out the required field.");
+  //   return; // Don't continue past this point
+  // }
 }
 
 export default Signup;
