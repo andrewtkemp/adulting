@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ActivitiesStyle.css";
 import adultingStatus from "../../assets/adultingStatus.png";
+import axios from "axios";
 
 function Activities() {
-  const activities = [
+  // this function pulls and displays today's activities //
+  // need to write if statement to just get today's //
+  const [activities, setActivities] = useState([]);
+  const getTodayActivities = () => {
+    axios.get("/api/activities").then((activities) => {
+      console.log(activities);
+      setActivities(activities.data);
+    });
+  };
+  const renderTodayActivities = () => {
+    return activities.map((activity) => {
+      return (
+        <div className="row">
+          <div className="col s12 m12 l4 TodayActivities">{activity.points}</div>
+          <div className="col s12 m12 l12 TodayActivities">{activity.activity}</div>
+        </div>
+      );
+    });
+  };
+  useEffect(() => {
+    getTodayActivities();
+  }, []);
+
+  // these needt to be deleted and pulled from the backend //
+  const activity = [
     {
       value: "health",
       category: "Health",
@@ -504,32 +529,39 @@ function Activities() {
       level: 2,
     },
   ];
+
+  // this function filters the categories and activities //
   let filterActivity = [];
   const handleActivity = (category) => {
     const filterCategory = category.target.value;
     filterActivity = activities.filter((activity) => activity.value === filterCategory);
   };
-  // need to make this work //
+
   const renderActivity = (activity, index) => {
     console.log("index:", index);
     return <option value="" key=""></option>;
   };
 
-  console.log("HELLO FROM ACTIVITIES!");
   return (
-    <div><h4>Start earning awards today!</h4>
-    <h5>Select a category, then activity.  
-      <br/>Enter amount of time doing activity, then date.  
-      < br/>Points will be calculated when time is entered.</h5>
-    <div className="col s12 m12 l7 activityCard">
-      <div className="card">
-        <div className="card-image">
-          <img src={adultingStatus} alt="adulting status bar"></img>
-        </div>
-        <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>
-        <div className="card-content">
-          {/* <select name="category" id="category" onChange={handleActivity}>
-            <option value="" disabled selected>
+    <div>
+      <h4>Start earning awards today!</h4>
+      <h5>
+        Select a category, then activity.
+        <br />
+        Enter amount of time doing activity, then date.
+        <br />
+        Points will be calculated when time is entered.
+      </h5>
+      <div className="col s12 m12 l7 activityCard">
+        <div className="card">
+          <div className="card-image">
+            <img src={adultingStatus} alt="adulting status bar"></img>
+          </div>
+          <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>
+          <div className="card-content">
+            <select name="category" id="category" onChange={handleActivity}>
+              {/* this was the original dropdown menu for category 
+              <option value="" disabled selected>
               choose a category:
             </option>
             <option value="automobile">automobile</option>
@@ -563,37 +595,35 @@ function Activities() {
             <option value="work">work</option>
             <i class="fas fa-briefcase"></i>
           </select>
-          <label>Category</label>
-          <select>{filterActivity.map(renderActivity)}</select> */}
+          <label>Category</label> */}
+            </select>
+            <select>{filterActivity.map(renderActivity)}</select>
 
-          <input className="col s12 m12 l12 enter" placeholder="activity"></input>
-          <input className="col s12 m12 l5 enter" placeholder="duration in minutes"></input>
-          <div className="col s12 m12 l2"></div>
-          <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
-          <button class="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
-        
-         
-        </div>
-        <br />
-        <br />
-        <div className="container">
-          <div className="row">
-            <h5 className="center-align">I'm getting so much done!</h5>
-            <div className="col s12 m12 l4 todayActivities">
-              <input placeholder="category"></input>
+            <input className="col s12 m12 l12 enter" placeholder="activity"></input>
+            <input className="col s12 m12 l5 enter" placeholder="duration"></input>
+            <div className="col s12 m12 l2"></div>
+            <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
+            <button class="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action">
+              Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <br />
+          <br />
+          <div className="container">
+            <div className="row">
+              <h5 className="center-align">I'm getting so much done!</h5>
+              <div className="col s12 m12 l8 todayActivities">
+                <input placeholder="activity"></input>
+              </div>
+              <div className="col s12 m12 l4 todayActivities">
+                <input placeholder="points"></input>
+              </div>
             </div>
-            <div className="col s12 m12 l4 todayActivities">
-              <input placeholder="activity"></input>
-            </div>
-            <div className="col s12 m12 l3 todayActivities">
-              <input placeholder="points"></input>
-            </div>
+            <div className="row">{renderTodayActivities()}</div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
