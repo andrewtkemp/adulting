@@ -1,6 +1,6 @@
 
 module.exports = {
-    Activities: require("./activities")
+    Activities: require("./Activities")
 }
 
 module.exports = {
