@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./Loginstyles.css";
 import { Link } from "react-router-dom";
 import loginPic from "../assets/adulting.png";
-import Nav from "../components/Nav";
+import Nav from "../components/Nav/Nav";
 
 function Login(props) {
   const [email, setEmail] = useState("");
