@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models/activities");
 
 // Defining methods for the activitiesController
 module.exports = {

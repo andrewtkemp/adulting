@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const logSchema = new Schema({
-    activity: { type: Schema.type.ObjectId, ref: 'Activities'},
+    // activity: { type: Schema.type.ObjectId, ref: 'Activities'},
     duration: {type: Number,required: true},   
-    Date: { type: Date, required: true },  
+    date: { type: Number, required: true },  
 });
 
 
