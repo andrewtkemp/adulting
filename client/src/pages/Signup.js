@@ -27,8 +27,8 @@ function Signup(props) {
             )
             .then(response => {
                 console.log(response)
-                // window.location.replace = '/activities';
-                return (<Redirect to="/home" />)
+                window.location = '/home';
+                // return (<Redirect to="/home" />)
             })
             .catch(error => {
                 console.log("user not added", error);
@@ -36,40 +36,48 @@ function Signup(props) {
     }
 
     return (
-       
-       <div className= "center-align" >
-           <div className= "row">
-     <img src={signUpPic} className="materialboxed" width="325"  />
-        <div className="row">
-                <div className="input-field col s5">
+
+        <div className="center-align phils-house">
+            <div className="col s6">
+                <img src={signUpPic} className="materialboxed col s6 m6 l6" width="325" />
+            </div>
+            <div className="col s6 phils-form">
+                <div className="input-field ">
                     <input name="newFirstName" onChange={e => setnewFirstName(e.target.value)} placeholder="First Name" id="first_name" type="text" className="validate" />
                     <label for="first_name"></label>
-                </div>
-                <div className="input-field col s5">
-                    <input name="newLastName" onChange={e => setnewLastName(e.target.value)} placeholder= "Last Name" id="last_name" type="text" className="validate" />
-                    <label for="last_name"></label>
-                </div>
-            </div>
-           <div className= "row">
-            <div className="input-field col s5">
-                    <input name="nickname" onChange={e => setnewNickName(e.target.value)} placeholder= "Nickname" id="nickname" type="text" className="validate" />
-                    <label for="nickname"></label>
-                </div>
-                <div className="input-field col s5">
-                    <input name="email" onChange={e => setnewEmail(e.target.value)} placeholder= "Email" id="email" type="text" className="validate" />
-                    <label for="email"></label>
-                </div>
 
-                <div className="input-field col s5">
-                    <input name="password" onChange={e => setnewPassword(e.target.value)} placeholder= "Password" id="password" type="text" className="validate" />
+
+                    <input name="newLastName" onChange={e => setnewLastName(e.target.value)} placeholder="Last Name" id="last_name" type="text" className="validate" />
+                    <label for="last_name"></label>
+
+
+
+
+                    <input name="nickname" onChange={e => setnewNickName(e.target.value)} placeholder="Nickname" id="nickname" type="text" className="validate" />
+                    <label for="nickname"></label>
+
+
+                    <input name="email" onChange={e => setnewEmail(e.target.value)} placeholder="Email" id="email" type="text" className="validate" />
+                    <label for="email"></label>
+
+
+
+                    <input name="password" onChange={e => setnewPassword(e.target.value)} placeholder="Password" id="password" type="text" className="validate" />
                     <label for="password"></label>
+
                 </div>
+                <button className="submit" onClick={handleSubmit}>Start Adulting Today!</button>
             </div>
-            </div>
-            <button  className= "submit" onClick={handleSubmit}>Start Adulting Today!</button>
-            
+
         </div>
     );
+    //     var matrixField = component.find("matrixName");
+    // matrixField.showHelpMessageIfInvalid();
+    // if(!matrixField.checkValidity()) {
+    //   // Optional message if you want
+    //   alert("Please fill out the required field."); 
+    //   return; // Don't continue past this point
+    // }
 }
 
 export default Signup;
