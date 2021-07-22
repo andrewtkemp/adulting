@@ -33,7 +33,7 @@ function Login(props) {
 
   return (
     <div>
-      <Nav />
+      
       <div className="row center-align ">
         <div className="col s6 pic">
           <img src={loginPic} className="materialboxed" width="325" />
