@@ -3,6 +3,24 @@ const User = require('../../models/User');
 const passport = require('passport');
 const LocalStrategy = require("passport-local");
 
+
+router.get('/:id', (req, res) => {
+  User.findById(
+      req.params.id,
+      { new: true, runValidators: true }
+    )
+      .then((dbAdulting) => {
+        res.json(dbAdulting);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+});
+
+
+
+
+
 router.post('/', (req, res) => {
   console.log(req.body)  
   User.create(req.body)

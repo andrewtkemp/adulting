@@ -519,10 +519,9 @@ function Activities() {
   return (
     <div><h4>Start earning awards today!</h4>
     <h5>Select a category, then activity.  
-      <br/>Enter amount of time doing activity.  
-      <br/>Enter date. 
+      <br/>Enter amount of time doing activity, then date.  
       < br/>Points will be calculated when time is entered.</h5>
-    <div className="col s12 m12 l8 activityCard">
+    <div className="col s12 m12 l7 activityCard">
       <div className="card">
         <div className="card-image">
           <img src={adultingStatus} alt="adulting status bar"></img>
@@ -567,8 +566,8 @@ function Activities() {
           <label>Category</label>
           <select>{filterActivity.map(renderActivity)}</select> */}
 
-          <input placeholder="activity"></input>
-          <input className="col s12 m12 l5" placeholder="time"></input>
+          <input className="col s12 m12 l12 enter" placeholder="activity"></input>
+          <input className="col s12 m12 l5 enter" placeholder="duration in minutes"></input>
           <div className="col s12 m12 l2"></div>
           <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
           <button class="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action">Submit
@@ -582,13 +581,13 @@ function Activities() {
         <div className="container">
           <div className="row">
             <h5 className="center-align">I'm getting so much done!</h5>
-            <div className="col s12 m12 l5 todayActivities">
+            <div className="col s12 m12 l4 todayActivities">
               <input placeholder="category"></input>
             </div>
-            <div className="col s12 m12 l5 todayActivities">
+            <div className="col s12 m12 l4 todayActivities">
               <input placeholder="activity"></input>
             </div>
-            <div className="col s12 m12 l2 todayActivities">
+            <div className="col s12 m12 l3 todayActivities">
               <input placeholder="points"></input>
             </div>
           </div>
