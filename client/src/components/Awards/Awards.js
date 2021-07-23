@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import "./AwardsStyle.css";
 import bronze from "../../assets/bronzeStar.png";
 import silver from "../../assets/silverStar.png";
@@ -8,7 +9,6 @@ import bronzeGold from "../../assets/bronze-silver-goldStar.png";
 
 function Awards() {
   function getPoints() {
-
     const pointsEarned = 150; //api.getPoints() CHANGE POINTS TO API CALL //
     return pointsEarned;
   }
@@ -38,22 +38,48 @@ function Awards() {
   function getAwardsAchieved() {
     const pointsEarned = getPoints();
     if (pointsEarned <= 99) {
-      return ;
+      return;
     }
     if (pointsEarned >= 100 && pointsEarned <= 199) {
-      return  <img src={bronze} alt="bronze star" className="allAwards"></img>;
+      return <img src={bronze} alt="bronze star" className="allAwards"></img>;
     }
     if (pointsEarned >= 200 && pointsEarned <= 299) {
-      return <span> <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img></span>;
+      return (
+        <span>
+          {" "}
+          <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img>
+        </span>
+      );
     }
     if (pointsEarned >= 300 && pointsEarned <= 399) {
-      return <span> <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img><img src={gold} alt="gold star" className="allAwards"></img></span>;
+      return (
+        <span>
+          {" "}
+          <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img>
+          <img src={gold} alt="gold star" className="allAwards"></img>
+        </span>
+      );
     }
     if (pointsEarned >= 400 && pointsEarned <= 499) {
-      return <span> <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img><img src={gold} alt="gold star" className="allAwards"></img><img src={bronzeSilver} alt="bronzeSilver star" className="allAwards"></img></span>;
+      return (
+        <span>
+          {" "}
+          <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img>
+          <img src={gold} alt="gold star" className="allAwards"></img>
+          <img src={bronzeSilver} alt="bronzeSilver star" className="allAwards"></img>
+        </span>
+      );
     }
     if (pointsEarned >= 500) {
-      return <span> <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img><img src={gold} alt="gold star" className="allAwards"></img><img src={bronzeSilver} alt="bronzeSilver star" className="allAwards"></img><img src={bronzeGold} alt="bronzeGold star" className="allAwards"></img></span>
+      return (
+        <span>
+          {" "}
+          <img src={bronze} alt="bronze star" className="allAwards"></img> <img src={silver} alt="silver star" className="allAwards"></img>
+          <img src={gold} alt="gold star" className="allAwards"></img>
+          <img src={bronzeSilver} alt="bronzeSilver star" className="allAwards"></img>
+          <img src={bronzeGold} alt="bronzeGold star" className="allAwards"></img>
+        </span>
+      );
     }
   }
 
@@ -98,14 +124,17 @@ function Awards() {
       return (
         <div>
           <img src={bronzeGold} alt="bronzeGold star" className="materialboxed"></img>
-          <p>Congratulations! You've earned the Gold Silver Bronze Star!</p>
+          <p>
+            Congratulations!
+            You've earned the Gold Silver Bronze Star!
+          </p>
         </div>
       );
     }
   }
 
   return (
-    <div className="col s12 m12 l4 awardCard">
+    <div className="col s12 m12 l5 awardCard">
       <div className="card">
         <div className="card-content">
           <span className="card-title">Awards</span>
@@ -115,22 +144,27 @@ function Awards() {
           <img src={gold} alt="gold star" className="allAwards"></img>
           <img src={bronzeSilver} alt="bronzeSilver star" className="allAwards"></img>
           <img src={bronzeGold} alt="bronzeGold star" className="allAwards"></img>
-          <span className="card-title">This is your current level</span>
+          <span className="card-title">This is your
+          <br /> current level</span>
 
           {getAwards()}
           <span className="card-title">Status</span>
-          <p>You currently have {getPoints()} points.</p>
+          <p>Points earned: {getPoints()}</p>
           <br />
 
           <p>You are {getPointsNeeded()} points away from your next award!</p>
           <br />
-          <p>These are the awards you have already earned.</p>
+          <p>Awards earned:</p>
           <br />
           <br />
           {getAwardsAchieved()}
           <br />
           <br />
-          <span className="card-title">Keep Adulting! You are doing great!</span>
+          <span className="card-title">
+            Keep Adulting!
+            <br />
+            You are doing great!
+          </span>
         </div>
       </div>
     </div>

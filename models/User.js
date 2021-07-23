@@ -32,13 +32,27 @@ const UserSchema = new Schema({
             type: Number
         },
         points: {
-            type: Number
+            type: Number,
+            default: 10
         },
         completed: {
             type: Boolean,
             default: false
         }
     }
+    ],
+  totalPoints: {
+    type: Number,
+    trim: true,
+    default: 0
+  },
+  log:
+    [
+     {
+      completedLog: {
+        type: Schema.Types.ObjectId, ref: 'Log'
+      },
+     }  
     ],
 });
 
