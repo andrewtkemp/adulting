@@ -14,6 +14,8 @@ router
   .put(activitiesController.update)
   .delete(activitiesController.remove);
 
+  
+
 module.exports = router;
 
   
