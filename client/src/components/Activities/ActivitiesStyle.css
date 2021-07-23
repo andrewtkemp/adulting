@@ -5,11 +5,17 @@
   margin-right: auto;
 }
 
-h5, h4 {
+h5,
+h4 {
   color: var(--peach);
   text-align: center;
 }
 
 .card-title {
   color: #00e676;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }

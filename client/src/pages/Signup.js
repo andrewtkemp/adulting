@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "./Signup.css";
+import "./SignupStyle.css";
 import signUpPic from "../assets/adultingStatus.png";
 import { Redirect } from "react-router-dom";
 
@@ -34,7 +34,7 @@ function Signup(props) {
   return (
     <div className="center-align phils-house">
       <div className="col s6">
-        <img src={signUpPic} className="materialboxed col s6 m6 l6" width="325" />
+        <img src={signUpPic} alt="adulting status bar" className="materialboxed col s6 m6 l6" width="325" />
       </div>
       <div className="col s6 phils-form">
         <div className="input-field ">
