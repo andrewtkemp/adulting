@@ -12,17 +12,18 @@ router.post('/', (req, res) => {
       });
   });
 
-  router.get('/:id', (req, res) => {
-    Log.findById(
-      req.params.id,
-      { new: true, runValidators: true }
-    )
-      .then((dbAdulting) => {
-        res.json(dbAdulting);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+  router.get('/log/:id', (req, res) => {
+    Log.findById()(req.params.id)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  });
+
+  router.get('/log', (req, res) => {
+    Log.findAll()
+    .find(req.query)
+    .sort({ date: -1 })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
   });
 
 
