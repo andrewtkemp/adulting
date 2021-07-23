@@ -7,7 +7,7 @@ const logSchema = new Schema({
     //level: [{ "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" }],
     //activity: { type: String, ref: 'Activities'},
     duration: {type: Number,required: true},   
-    date: { type: Number, required: true },  
+    date: { type: Date, required: true },  
 });
 
 

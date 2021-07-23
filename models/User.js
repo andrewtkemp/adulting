@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     default: Date.now
   },
 
-  Log:
+  log:
     [
      {
       completedLog: {
