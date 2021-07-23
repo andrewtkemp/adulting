@@ -9,6 +9,8 @@ const bodyParser = require("body-parser");
 const passport = require('passport');
 const LocalStrategy = require("passport-local");
 const User = require('./models/User');
+const Activities = require('./models/Activities');
+const Log = require('./models/Log');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

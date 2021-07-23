@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const activitiesRoutes = require("./activities");
+const activitiesRoutes = require("./Activities");
 const userRoutes = require("./user");
-const logRoutes = require("./log");
+const logRoutes = require("./Log");
 
 // API routes
 router.use("/activities", activitiesRoutes);
