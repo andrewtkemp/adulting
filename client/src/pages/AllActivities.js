@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav/Nav";
-import "./AllActivities.css";
+import "./AllActivitiesStyle.css";
 import axios from "axios";
 
 function AllActivities() {

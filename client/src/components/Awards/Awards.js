@@ -7,6 +7,9 @@ import gold from "../../assets/goldStar.png";
 import bronzeSilver from "../../assets/bronze-silverStar.png";
 import bronzeGold from "../../assets/bronze-silver-goldStar.png";
 
+
+// ObjectId("60f8d284c3cbbea44113f982")
+
 function Awards() {
   function getPoints() {
     const pointsEarned = 150; //api.getPoints() CHANGE POINTS TO API CALL //

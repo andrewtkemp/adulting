@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "./Signup.css";
+import "./SignupStyle.css";
 import signUpPic from "../assets/adultingStatus.png";
 import { Redirect } from "react-router-dom";
 

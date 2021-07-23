@@ -48,7 +48,7 @@ export default function Activities() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`/api/user/${"60e9d680eb86590ee05ac5d2"}/${activitySelected}`, {
+      .put(`/api/user/${"60f8d284c3cbbea44113f982"}/${activitySelected}`, {
         activity: "Jury duty",
         category: "Miscellaneous",
         level: 2,
@@ -61,6 +61,24 @@ export default function Activities() {
   useEffect(() => {
     getActivities();
   }, []);
+
+  const renderTodayActivities = () => {
+    function sameDay(d1, d2) {
+      return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
+    }
+
+    return activities.map((activity) => {
+      if (!sameDay(new Date(activity.date), new Date())) {
+        return;
+      }
+      return (
+        <div className="row">
+          <div className="col s12 m9 l9 TodayActivities">{activity.activity}</div>
+          <div className="col s12 m3 l3 TodayActivities">{activity.points}</div>
+        </div>
+      );
+    });
+  };
 
   return (
     <div>
@@ -115,15 +133,13 @@ export default function Activities() {
           <br />
           <div className="row">
             <h5 className="center-align">I'm getting so much done today!</h5>
-            <div className="col s12 m12 l5 todayActivities">
-              <input placeholder="category"></input>
+            <div className="col s12 m9 l9 todayActivities">
+              <input placeholder="ACTIVITY"></input>
             </div>
-            <div className="col s12 m12 l5 todayActivities">
-              <input placeholder="activity"></input>
+            <div className="col s12 m3 l3 todayActivities">
+              <input placeholder="POINTS"></input>
             </div>
-            <div className="col s12 m12 l2 todayActivities">
-              <input placeholder="points"></input>
-            </div>
+            <div className="row">{renderTodayActivities()}</div>
           </div>
         </div>
       </div>
