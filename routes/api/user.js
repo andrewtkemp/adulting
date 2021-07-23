@@ -6,15 +6,15 @@ const LocalStrategy = require("passport-local");
 
 router.get('/:id', (req, res) => {
   User.findById(
-      req.params.id,
-      { new: true, runValidators: true }
-    )
-      .then((dbAdulting) => {
-        res.json(dbAdulting);
-      })
-      .catch((err) => {
-        res.json(err);
-      });
+    req.params.id,
+    { new: true, runValidators: true }
+  )
+    .then((dbAdulting) => {
+      res.json(dbAdulting);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  console.log(req.body)  
+  console.log(req.body)
   User.create(req.body)
     .then((dbUser) => {
       res.json(dbUser);
@@ -33,35 +33,35 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    User.findByIdAndUpdate(
-        req.params.id,
-        { $push: { activities: req.body } },
-        // "runValidators" will ensure new exercises meet our schema requirements
-        { new: true, runValidators: true }
-      )
-        .then((dbWorkout) => {
-          res.json(dbWorkout);
-        })
-        .catch((err) => {
-          res.json(err);
-        });
+  User.findByIdAndUpdate(
+    req.params.id,
+    { $push: { activities: req.body } },
+    // "runValidators" will ensure new exercises meet our schema requirements
+    { new: true, runValidators: true }
+  )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
-router.put('/:id/:activityId', async (req, res) => {
-    const response = await User.findOne({ "_id" : req.params.id});
-    const act = await response.activities.map((a) => {
-      console.log(String(a._id) === req.params.activityId)
-      if (String(a._id) === req.params.activityId) {
-        a.completed = req.body.completed;
-        return a;
-      } else {
-        return a;
-      }
-    });
-    const updatedUser = await User.findOneAndUpdate({_id: req.params.id}, {
-      $set:{ activities:act }
-    })
-    res.json(updatedUser)
+router.put('/:id/:activityId', (req, res) => {
+  const response = await User.findOne({ "_id" : req.params.id});
+  const act = await response.activities.map((a) => {
+    console.log(String(a._id) === req.params.activityId)
+    if (String(a._id) === req.params.activityId) {
+      a.completed = req.body.completed;
+      return a;
+    } else {
+      return a;
+    }
+  });
+  const updatedUser = await User.findOneAndUpdate({_id: req.params.id}, {
+    $set:{ activities:act }
+  })
+  res.json(updatedUser)
 });
 
 router.post('/login', (req, res, next) => {
@@ -72,10 +72,10 @@ router.post('/login', (req, res, next) => {
       req.session.save(() => {
         req.session.userId = user.id;
         req.session.loggedIn = true;
-        
+
         res.json({ user: user, message: 'You are now logged in!' });
       });
-  
+
     } catch (err) {
       res.status(400).json(err);
     }
