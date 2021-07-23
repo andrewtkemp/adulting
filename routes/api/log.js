@@ -12,16 +12,18 @@ router.post('/', (req, res) => {
       });
   });
 
-//   router.get('/:id', (req, res) => {
-//     Log.findById(
-//       req.params.id )
-//       .then((dbAdulting) => {
-//         res.json(dbAdulting);
-//       })
-//       .catch((err) => {
-//         res.json(err);
-//       });
-//   });
+  router.get('/:id', (req, res) => {
+    Log.findById(
+      req.params.id,
+      { new: true, runValidators: true }
+    )
+      .then((dbAdulting) => {
+        res.json(dbAdulting);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
 
 
 module.exports = router;
