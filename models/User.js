@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const LocalStrategy = require("passport-local");
 
 const UserSchema = new Schema({
   username: {
@@ -18,26 +17,14 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  activities:
+
+  log:
     [
-        {
-        category: {
-            type: String
-        },
-        name: {
-            type: String
-        },
-        time: {
-            type: Number
-        },
-        points: {
-            type: Number
-        },
-        completed: {
-            type: Boolean,
-            default: false
-        }
-    }
+     {
+      completedLog: {
+        type: Schema.Types.ObjectId, ref: 'Log'
+      },
+     }  
     ],
 });
 
