@@ -1,8 +1,6 @@
 
-module.exports = {
-    Activities: require("./Activities")
-}
 
 module.exports = {
+    Activities: require("./Activities"),
     Log: require("./Log")
 }

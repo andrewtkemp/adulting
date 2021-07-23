@@ -1,7 +1,5 @@
-
 const mongoose = require("mongoose");
-// const  Activities  = require("../models/Activities");
-const db = require("../models/Activities")
+const db = require("../models");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adulting");
 
