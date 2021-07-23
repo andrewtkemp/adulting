@@ -34,7 +34,7 @@ function Signup(props) {
   return (
     <div className="center-align phils-house">
       <div className="col s6">
-        <img src={signUpPic} className="materialboxed col s6 m6 l6" width="325" />
+        <img src={signUpPic} alt="adulting status bar" className="materialboxed col s6 m6 l6" width="325" />
       </div>
       <div className="col s6 phils-form">
         <div className="input-field ">
