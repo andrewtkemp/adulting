@@ -29,6 +29,10 @@
 ## Importing a Component
 
 ## Things we wanted to add or will add
+  - Avatars that can grow and dress more adult like as you succeed 
+  - Add custom activities and milestones (some costume some not) 
+  - Social functionality
+
 
 
 

@@ -4,7 +4,6 @@ import { useState } from "react";
 import "./Loginstyles.css";
 import { Link } from "react-router-dom";
 import loginPic from "../assets/adulting.png";
-import Nav from "../components/Nav";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -33,10 +32,9 @@ function Login(props) {
 
   return (
     <div>
-      <Nav />
       <div className="row center-align ">
         <div className="col s6 pic">
-          <img src={loginPic} className="materialboxed" width="325" />
+          <img src={loginPic} alt="definition of adulting" className="materialboxed" width="325" />
         </div>
 
         <div className="col s6 center">

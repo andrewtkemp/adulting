@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-//const { Activities } = require("../models");
-const db = require("../models")
+const db = require("../models");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/adulting");
 
@@ -432,11 +431,22 @@ const activitiesSeed = [
   }, 
 ];
 
-db.Activities
-  .remove({})
+// db.Activities
+//   .remove({})
+//   .then(() => db.Activities.collection.insertMany(activitiesSeed))
+//   .then((data) => {
+//     console.log(data.result.n + " activities have been inserted!");
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+db.Activities.remove({})
   .then(() => db.Activities.collection.insertMany(activitiesSeed))
   .then((data) => {
-    console.log(data.result.n + " activities have been inserted!");
+    console.log(data.result.n + ' records inserted!');
     process.exit(0);
   })
   .catch((err) => {

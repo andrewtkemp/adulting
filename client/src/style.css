@@ -11,3 +11,7 @@ body {
 #allActivitiesPic {
     padding-top: 0px !important;
 }
+
+select {
+    display: block !important;
+}
