@@ -2,5 +2,6 @@
 
 module.exports = {
     Activities: require("./Activities"),
-    Log: require("./Log")
+    Log: require("./Log"),
+    User: require('./User')
 }

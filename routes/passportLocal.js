@@ -4,8 +4,7 @@ const User = require('../models/User');
 
 module.exports = function () {
 
-    // Configure the local strategy for use by Passport.
-    //
+    
     // The local strategy requires a `verify` function which receives the credentials
     // (`username` and `password`) submitted by the user.  The function must verify
     // that the password is correct and then invoke `cb` with a user object, which
@@ -14,20 +13,23 @@ module.exports = function () {
         "local",
         new Strategy((username, password, cb) => {
           console.log("start", username, password, cb);
-          User.find({ username: username }, (err, user) => {
-            if (!user.length) {
+          User.findOne({ username: username }, async (err, user) => {
+            console.log(user);
+            if (!user) {
               return cb(null, false);
             }
-            const validPassword = user[0].checkPassword(password, user[0].password);
+            console.log("start", password, user);
+            const validPassword = await user.checkPassword(password, user.password);
+            console.log(validPassword);
             if (validPassword) {
-              console.log(user, password)
-              return cb(null, { id: user[0]._id , username: user[0].username });
+              console.log('valid', user, password)
+              return cb(null, user);
             } else {
               return cb(null, false);
             }
           });
         })
-    )
+    ) 
     // db.get('SELECT rowid AS id, * FROM users WHERE username = ?', [ username ], function(err, row) {
     //   if (err) { return cb(err); }
     //   if (!row) { return cb(null, false, { message: 'Incorrect username or password.' }); }

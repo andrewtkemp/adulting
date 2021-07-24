@@ -2,6 +2,37 @@ const router = require('express').Router();
 const User = require('../../models/User');
 const passport = require('passport');
 const LocalStrategy = require("passport-local");
+const { Activities } = require('../../models');
+const mongoose = require('mongoose')
+
+router.get('/', async (req, res) => {
+  // find all products
+  try {
+    const allUserData = await User.findAll({    });
+    res.status(200).json(allUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// get one product
+router.get('/:id', async (req, res) => {
+  //find 1 product
+  try {
+    const allUserData = await User.findOne(req.params.id, {
+      include: [{ model: Activities }]
+    });
+
+    if (!allUserData) {
+      res.status(404).json({ message: 'No User found with that id!' });
+      return;
+    }
+
+    res.status(200).json(allUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 router.get('/:id', (req, res) => {
@@ -16,9 +47,6 @@ router.get('/:id', (req, res) => {
       res.json(err);
     });
 });
-
-
-
 
 
 router.post('/', (req, res) => {
@@ -64,9 +92,29 @@ router.put('/:id/:activityId', async (req, res) => {
   res.json(updatedUser)
 });
 
+router.get('/:id/points', (req, res) =>{
+  User.aggregate([
+    { $match : { _id : mongoose.Types.ObjectId(req.params.id) } },
+    {
+        $addFields: {
+            totalPoints: {
+                $sum: '$activities.points',
+            },
+        },
+    },
+  ])
+    .then((dbWorkouts) => {
+        res.json(dbWorkouts);
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+})
+
+
 router.post('/login', (req, res, next) => {
   console.log(req.body)
-  passport.authenticate('local', async (err, user, info) => {
+  passport.authenticate('local', (err, user, info) => {
     try {
       console.log(user);
       req.session.save(() => {
