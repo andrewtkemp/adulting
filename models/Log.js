@@ -3,10 +3,12 @@ const Schema = mongoose.Schema;
 const Activities = require('./Activities');
 
 const logSchema = new Schema({
-    activity: [{ "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" }],
-    level: [{ "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" }],
-    duration: {type: Number,required: true},   
-    date: { type: Date, required: true },  
+    log: [{
+        activity: { "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" },
+        duration: {type: Number,required: true},   
+        date: { type: Date, required: true }, 
+    }], 
+    userId: {"type": mongoose.Schema.Types.ObjectId, "ref": "User" }
 });
 
 
