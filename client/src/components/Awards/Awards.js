@@ -12,9 +12,14 @@ import bronzeGold from "../../assets/bronze-silver-goldStar.png";
 
 function Awards() {
   function getPoints() {
-    const pointsEarned = 150; //api.getPoints() CHANGE POINTS TO API CALL //
+    const pointsEarned = 300; //api.getPoints() CHANGE POINTS TO API CALL //
     return pointsEarned;
   }
+  
+  // testing funtion to get points from backend //
+   // axios.get("api/user/id/points").then(res(res) => {
+  //   console.log(res.data);
+  // })
 
   function getPointsNeeded() {
     const pointsEarned = getPoints();
@@ -138,7 +143,7 @@ function Awards() {
 
   return (
     <div className="col s12 m12 l4 awardCard">
-      <div className="card">
+      <div className="card z-depth-5">
         <div className="card-content">
           <span className="card-title">Awards</span>
           <p>Earn points by acting like an adult to get these awards!</p>
