@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const LocalStrategy = require("passport-local");
+const bcrypt = require('bcrypt');
 
 const UserSchema = new Schema({
   username: {
@@ -31,7 +32,8 @@ const UserSchema = new Schema({
             type: Number
         },
         points: {
-            type: Number
+            type: Number,
+            default: 10
         },
         completed: {
             type: Boolean,
@@ -39,12 +41,49 @@ const UserSchema = new Schema({
         }
     }
     ],
+  totalPoints: {
+    type: Number,
+    trim: true,
+    default: 0
+  },
+  log:
+    [
+     {
+      completedLog: {
+        type: Schema.Types.ObjectId, ref: 'Log'
+      },
+     }  
+    ],
 });
 
-UserSchema.methods.checkPassword = function(password1, password2) {
-  console.log(password1, password2)
-  return true
-};
+UserSchema.pre("save", function (next) {
+  const user = this
+
+  if (this.isModified("password") || this.isNew) {
+    bcrypt.genSalt(10, function (saltError, salt) {
+      if (saltError) {
+        return next(saltError)
+      } else {
+        bcrypt.hash(user.password, salt, function(hashError, hash) {
+          if (hashError) {
+            return next(hashError)
+          }
+
+          user.password = hash
+          next()
+        })
+      }
+    })
+  } else {
+    return next()
+  }
+})
+
+UserSchema.methods.checkPassword = function(password, password2) {
+  return bcrypt.compare(password, password2).then(function(result) {
+    return result
+  });
+}
 
 const User = mongoose.model("User", UserSchema);
 

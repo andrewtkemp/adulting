@@ -1,9 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "../../pages/Home";
-import Login from "../../pages/login";
-import AllActivities from "../../pages/AllActivities";
 
 function Nav() {
   const handleSubmit = (event) => {
@@ -16,13 +12,21 @@ function Nav() {
       });
   };
 
+  useEffect(() => {
+    var elem = document.querySelector(".sidenav");
+    var instance = window.M.Sidenav.init(elem, {
+      edge: "left",
+      inDuration: 250,
+    });
+  }, []);
+
   return (
     <nav>
       <div className="#69f0ae green accent-2 nav-wrapper">
         <a href="/Home" className="brand-logo">
           ADULTING
         </a>
-        <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+        <a href="/Home" data-target="mobile-demo" className="sidenav-trigger">
           <i className="material-icons">menu</i>
         </a>
         <ul className="right hide-on-med-and-down">
