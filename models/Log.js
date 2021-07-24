@@ -6,7 +6,7 @@ const logSchema = new Schema({
     activity: [{ "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" }],
     level: [{ "type": mongoose.Schema.Types.ObjectId, "ref": "Activities" }],
     duration: {type: Number,required: true},   
-    date: { type: Date, required: false },  
+    date: { type: Date, required: true },  
 });
 
 
