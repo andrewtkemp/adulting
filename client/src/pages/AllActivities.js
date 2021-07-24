@@ -3,6 +3,7 @@ import Nav from "../components/Nav/Nav";
 import "./AllActivitiesStyle.css";
 import axios from "axios";
 
+
 function AllActivities() {
   const [activities, setActivities] = useState([]);
   const getAllActivities = () => {
