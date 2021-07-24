@@ -5,21 +5,20 @@ import axios from "axios";
 
 export default function Activities() {
   const categories = [
-    "Health",
-    "Finances",
-    "Chores",
     "Automobile",
-    "Home Maintenance",
-    "Social",
-    "Organization/Paperwork",
     "Charity",
-    "Fitness/personal care",
+    "Chores",
     "Digital",
+    "Finances",
+    "Fitness/personal care",
+    "Health",
+    "Home Maintenance",
+    "Miscellaneous",
+    "Organization/Paperwork",
     "Pet Care",
     "Self Care",
+    "Social",
     "Work",
-    "Miscellaneous",
-    "Custom",
   ];
   const [activities, setActivities] = useState([]);
   const [selected, setSelected] = useState("Choose an Category");
@@ -36,7 +35,6 @@ export default function Activities() {
       })
     );
   };
-  // need to make this work //
 
   const getActivities = () => {
     axios.get("/api/activities").then((res) => {
@@ -62,6 +60,9 @@ export default function Activities() {
     getActivities();
   }, []);
 
+  // const renderPoints = ({activity.time}, {activity.level}) => {
+  //   return {activity.time} * {activity.level};
+  // };
   const renderTodayActivities = () => {
     function sameDay(d1, d2) {
       return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
@@ -83,21 +84,20 @@ export default function Activities() {
   return (
     <div>
       <h4>Start ADULTING and earn awards today!</h4>
-      <h5>
-        Select a category, then activity.
-        <br />
-        Enter amount of time (in minutes) doing activity.
-        <br />
-        Enter date.
-        <br />
-        Points will be calculated when time is entered.
-      </h5>
+
       <div className="col s12 m12 l8 activityCard">
-        <div className="card">
+        <div className="card z-depth-5">
           <div className="card-image">
             <img src={adultingStatus} alt="adulting status bar"></img>
           </div>
           <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>
+          <p className="center-align">
+            Select a category, then activity.
+            <br />
+            Enter amount of time (in minutes) doing activity, then enter date.
+            <br />
+            Points will be calculated when time is entered.
+          </p>
           <div className="card-content">
             <select name="category" id="category" onChange={handleActivity} value={selected}>
               <option disabled value="Choose an Category">
@@ -122,7 +122,7 @@ export default function Activities() {
               ))}
             </select>
             {/* <input placeholder="activity"></input> */}
-            <input className="col s12 m12 l5" placeholder="time"></input>
+            <input className="col s12 m12 l5" placeholder="time (in minutes)"></input>
             <div className="col s12 m12 l2"></div>
             <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
             <button className="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action" onClick={handleSubmit}>
