@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 function Signup(props) {
   const [newFirstName, setnewFirstName] = useState("");
   const [newLastName, setnewLastName] = useState("");
-  const [nickname, setnewNickName] = useState("");
+  const [username, setnewUserName] = useState("");
   const [newEmail, setnewEmail] = useState("");
   const [newPassword, setnewPassword] = useState("");
 
@@ -18,8 +18,8 @@ function Signup(props) {
       .post("/api/user", {
         email: newEmail,
         password: newPassword,
-        name: `${newFirstName}${newLastName}`,
-        username: nickname,
+        name: `${newFirstName} ${newLastName}`,
+        username: username,
       })
       .then((response) => {
         console.log(response);
@@ -44,7 +44,7 @@ function Signup(props) {
           <input name="newLastName" onChange={(e) => setnewLastName(e.target.value)} placeholder="Last Name" id="last_name" type="text" className="validate" />
           <label for="last_name"></label>
 
-          <input name="nickname" onChange={(e) => setnewNickName(e.target.value)} placeholder="Nickname" id="nickname" type="text" className="validate" />
+          <input name="nickname" onChange={(e) => setnewUserName(e.target.value)} placeholder="Username" id="nickname" type="text" className="validate" />
           <label for="nickname"></label>
 
           <input name="email" onChange={(e) => setnewEmail(e.target.value)} placeholder="Email" id="email" type="text" className="validate" />
