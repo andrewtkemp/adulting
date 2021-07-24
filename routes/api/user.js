@@ -114,7 +114,7 @@ router.get('/:id/points', (req, res) =>{
 
 router.post('/login', (req, res, next) => {
   console.log(req.body)
-  passport.authenticate('local', async (err, user, info) => {
+  passport.authenticate('local', (err, user, info) => {
     try {
       console.log(user);
       req.session.save(() => {
