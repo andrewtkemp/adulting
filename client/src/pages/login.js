@@ -8,21 +8,23 @@ import loginPic from "../assets/adulting.png";
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [username, setUserName]= useState("") 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
+    console.log(email, password, username);
     axios
       .post(
         "api/user/login",
         {
           email,
           password,
+          username
         },
         { withCredentials: true }
       )
       .then((response) => {
         console.log(response);
+        localStorage.user=JSON.stringify(response.data.user)
         window.location.replace("/home");
       })
       .catch((error) => {
@@ -41,6 +43,10 @@ function Login(props) {
           <div className="input-field ">
             <i className="material-icons prefix">account_circle</i>
             <input name="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
+          </div>
+          <div className="input-field ">
+            <i className="material-icons prefix">account_circle</i>
+            <input name="email" placeholder="Username" onChange={(e) => setUserName(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
           </div>
           <div className="input-field ">
             <i className="material-icons prefix">security</i>

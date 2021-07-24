@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./ActivitiesStyle.css";
 import adultingStatus from "../../assets/adultingStatus.png";
 import axios from "axios";
+
 
 export default function Activities() {
   const categories = [
@@ -20,6 +21,7 @@ export default function Activities() {
     "Social",
     "Work",
   ];
+  const time = useRef(null)
   const [activities, setActivities] = useState([]);
   const [selected, setSelected] = useState("Choose an Category");
   const [activitySelected, setActivitySelected] = useState("Choose an Activity");
@@ -45,6 +47,9 @@ export default function Activities() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user= JSON.parse(localStorage.user)
+    console.log(user)
+    console.log(activitySelected)
     axios
       .put(`/api/user/${"60f8d284c3cbbea44113f982"}/${activitySelected}`, {
         activity: "Jury duty",
@@ -122,7 +127,7 @@ export default function Activities() {
               ))}
             </select>
             {/* <input placeholder="activity"></input> */}
-            <input className="col s12 m12 l5" placeholder="time (in minutes)"></input>
+            <input className="col s12 m12 l5" ref={time} placeholder="time (in minutes)"></input>
             <div className="col s12 m12 l2"></div>
             <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
             <button className="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action" onClick={handleSubmit}>
