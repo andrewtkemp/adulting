@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./ActivitiesStyle.css";
-import adultingStatus from "../../assets/adultingStatus.png";
+import adultingStatus from "../../assets/adultingstatus.png";
 import axios from "axios";
-
-
 export default function Activities() {
   const categories = [
     "Automobile",
@@ -40,27 +38,30 @@ export default function Activities() {
       })
     );
   };
-
   const getActivities = () => {
-    axios.get("/api/activities").then((res) => {
+    axios.get("api/activities").then((res) => {
       console.log(res.data);
       setActivities(res.data);
       setFilterActivity(res.data);
     });
   };
-
-  const getLog = () => {
-    axios.get(`/api/log/${user._id}/`).then((res) => {
-      console.log(res.data);
-
-
-     setLog(...res.data.log);
-
+  const createLog = () => {
+    axios.post(`api/log/`,{userId: user._id}).then(res => {
+      getLog()
     });
+  }
+  const getLog = () => {
+    axios.get(`api/log/${user._id}`).then((res) => {
+      if(!res.data.log){
+        createLog()
+      }
+      console.log(...res.data.log)
+      setLog([...log, ...res.data.log]);
+      console.log(log)
+    }).catch(err => console.log(err))
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log(time.current.value)
     console.log(date.current.value)
     axios
@@ -68,7 +69,6 @@ export default function Activities() {
         id: activitySelected,
         duration: parseInt(time.current.value),
         date: date.current.value
-
       })
       .then((reeeee) => {
         console.log(reeeee);
@@ -78,7 +78,6 @@ export default function Activities() {
     getActivities();
     getLog()
   }, []);
-
   // const renderPoints = ({activity.time}, {activity.level}) => {
   //   return {activity.time} * {activity.level};
   // };
@@ -86,7 +85,6 @@ export default function Activities() {
     function sameDay(d1, d2) {
       return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
     }
-
     return activities.map((activity) => {
       if (!sameDay(new Date(activity.date), new Date())) {
         return;
@@ -99,11 +97,9 @@ export default function Activities() {
       );
     });
   };
-
   return (
     <div>
       <h4>Start ADULTING and earn awards today!</h4>
-
       <div className="col s12 m12 l8 activityCard">
         <div className="card z-depth-5">
           <div className="card-image">
@@ -158,9 +154,9 @@ export default function Activities() {
             <div className="col s12 m3 l3 todayActivities">
               <input placeholder="POINTS"></input>
             </div>
-            <div className="row">{!log.length > 0? log.map(activity =>
-              <p>{activity.activity}</p>
-            ):<p>No Activities found</p>}</div>
+            <div className="row">{log.length !== 0 ? log.map(activity =>(<>
+              <p>{activity.activity.activity}</p> <p>{activity.duration * activity.activity.level}</p>
+            </>)):<p>No Activities found</p>}</div>
           </div>
         </div>
       </div>
