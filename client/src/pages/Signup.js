@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import "./SignupStyle.css";
-import signUpPic from "../assets/adultingStatus.png";
+import signUpPic from "../assets/adultingstatus.png";
 import { Redirect } from "react-router-dom";
 
 function Signup(props) {
