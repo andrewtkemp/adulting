@@ -4,6 +4,7 @@ import "./AllActivitiesStyle.css";
 import axios from "axios";
 import dayjs from "dayjs";
 
+
 function AllActivities() {
   const [activities, setActivities] = useState([]);
   const getAllActivities = () => {

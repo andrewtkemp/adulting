@@ -446,8 +446,15 @@ const activitiesSeed = [
 db.Activities.remove({})
   .then(() => db.Activities.collection.insertMany(activitiesSeed))
   .then((data) => {
-    console.log(data.result.n + ' records inserted!');
-    process.exit(0);
+    db.User.create({
+      "email": "andrew3",
+      "password": "andrew3",
+      "name": "AndrewKemp",
+      "username": "andrew3",
+      "activities": data.ops,
+    }).then(
+      (dbUser) => {console.log(dbUser)}
+    )
   })
   .catch((err) => {
     console.error(err);
