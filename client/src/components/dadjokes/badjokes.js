@@ -4,10 +4,10 @@ import { useState,useEffect } from "react";
 
 
 
-function Dadjokes(props) {
+function Badjokes(props) {
 const[joke, setjokes]=useState()
   //  start of jokes 
-  function dadjokes() {
+  function badjokes() {
     var options = {
       method: 'GET',
       url: 'https://dad-jokes.p.rapidapi.com/random/joke/png',
@@ -16,18 +16,18 @@ const[joke, setjokes]=useState()
         'x-rapidapi-host': 'dad-jokes.p.rapidapi.com'
       }
     };
-    
+    //working on this to call then will move to modal 
     axios.request(options).then(function (response) {
       console.log(response.data);
       setjokes(response.data.body.setup.punchline)
-       console.log(Dadjokes) 
+       console.log(Badjokes) 
     }).catch(function (error) {
       console.error(error);
     });
   }
   useEffect(() => {
     // Update the document title using the browser API
-   dadjokes()
+   badjokes()
   },[]);
   return (
     <>
@@ -35,7 +35,7 @@ const[joke, setjokes]=useState()
 
       <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-          <h4>dadjokes</h4>
+          <h4>badjokes</h4>
           <p></p>
         </div>
         <div class="modal-footer">
@@ -44,4 +44,4 @@ const[joke, setjokes]=useState()
       </div>
     </>)
 }
-export default Dadjokes;
+export default Badjokes;

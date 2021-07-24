@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../components/Nav/index";
 import Activities from "../components/Activities/Activities";
 import Awards from "../components/Awards/Awards";
-import Dadjokes from "../components/dadjokes/dadjokes";
+import Badjokes from "../components/dadjokes/badjokes";
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
       <Nav />
       <main className="main-container" id="home">
         <div className="row">
-          <Dadjokes/>
+          <Badjokes/>
           <Activities />
           <Awards />
         </div>
