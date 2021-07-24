@@ -22,10 +22,13 @@ export default function Activities() {
     "Work",
   ];
   const time = useRef(null)
+  const date = useRef(null)
   const [activities, setActivities] = useState([]);
+  const [log, setLog] = useState([]);
   const [selected, setSelected] = useState("Choose an Category");
   const [activitySelected, setActivitySelected] = useState("Choose an Activity");
   const [filterActivity, setFilterActivity] = useState([]);
+  const user = JSON.parse(localStorage.user)
   const handleActivity = (event) => {
     const filterCategory = event.target.value;
     console.log(filterCategory);
@@ -45,17 +48,27 @@ export default function Activities() {
       setFilterActivity(res.data);
     });
   };
+
+  const getLog = () => {
+    axios.get(`/api/log/${user._id}/`).then((res) => {
+      console.log(res.data);
+
+
+     setLog(...res.data.log);
+
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user= JSON.parse(localStorage.user)
-    console.log(user)
-    console.log(activitySelected)
+
+    console.log(time.current.value)
+    console.log(date.current.value)
     axios
-      .put(`/api/user/${"60f8d284c3cbbea44113f982"}/${activitySelected}`, {
-        activity: "Jury duty",
-        category: "Miscellaneous",
-        level: 2,
-        _id: "60fa01f7a7dfd34918a57170",
+      .put(`/api/log/${user._id}/`, {
+        id: activitySelected,
+        duration: parseInt(time.current.value),
+        date: date.current.value
+
       })
       .then((reeeee) => {
         console.log(reeeee);
@@ -63,6 +76,7 @@ export default function Activities() {
   };
   useEffect(() => {
     getActivities();
+    getLog()
   }, []);
 
   // const renderPoints = ({activity.time}, {activity.level}) => {
@@ -129,7 +143,7 @@ export default function Activities() {
             {/* <input placeholder="activity"></input> */}
             <input className="col s12 m12 l5" ref={time} placeholder="time (in minutes)"></input>
             <div className="col s12 m12 l2"></div>
-            <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
+            <input className="col s12 m12 l5" ref={date} type="date" id="date" name="date"></input>
             <button className="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action" onClick={handleSubmit}>
               Submit
               <i className="material-icons right">send</i>
@@ -144,7 +158,9 @@ export default function Activities() {
             <div className="col s12 m3 l3 todayActivities">
               <input placeholder="POINTS"></input>
             </div>
-            <div className="row">{renderTodayActivities()}</div>
+            <div className="row">{!log.length > 0? log.map(activity =>
+              <p>{activity.activity}</p>
+            ):<p>No Activities found</p>}</div>
           </div>
         </div>
       </div>
