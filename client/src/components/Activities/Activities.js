@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./ActivitiesStyle.css";
 import adultingStatus from "../../assets/adultingStatus.png";
-import axios from 'axios';
+import axios from "axios";
 
 export default function Activities() {
-  const categories = ["Health",
+  const categories = [
+    "Health",
     "Finances",
     "Chores",
     "Automobile",
@@ -18,51 +19,79 @@ export default function Activities() {
     "Self Care",
     "Work",
     "Miscellaneous",
-    "Custom"];
+    "Custom",
+  ];
   const [activities, setActivities] = useState([]);
-  const [selected, setSelected] = useState('Choose an Category');
-  const [activitySelected, setActivitySelected] = useState('Choose an Activity');
+  const [selected, setSelected] = useState("Choose an Category");
+  const [activitySelected, setActivitySelected] = useState("Choose an Activity");
   const [filterActivity, setFilterActivity] = useState([]);
   const handleActivity = (event) => {
     const filterCategory = event.target.value;
     console.log(filterCategory);
     setSelected(filterCategory);
-    setFilterActivity(activities.filter((activity) => {
-      console.log(activity);
-      return (activity.category.toLowerCase() === filterCategory)
-    }))
+    setFilterActivity(
+      activities.filter((activity) => {
+        console.log(activity);
+        return activity.category.toLowerCase() === filterCategory;
+      })
+    );
   };
   // need to make this work //
- 
+
   const getActivities = () => {
-    axios.get('/api/activities').then((res) => {
+    axios.get("/api/activities").then((res) => {
       console.log(res.data);
       setActivities(res.data);
       setFilterActivity(res.data);
     });
-  }
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`/api/user/${"60e9d680eb86590ee05ac5d2"}/${activitySelected}`, {
-      activity: "Jury duty",
-      category: "Miscellaneous",
-      level: 2,
-      _id: "60fa01f7a7dfd34918a57170"
-    }).then((reeeee) => {
-      console.log(reeeee);
-    })
-  }
+    axios
+      .put(`/api/user/${"60f8d284c3cbbea44113f982"}/${activitySelected}`, {
+        activity: "Jury duty",
+        category: "Miscellaneous",
+        level: 2,
+        _id: "60fa01f7a7dfd34918a57170",
+      })
+      .then((reeeee) => {
+        console.log(reeeee);
+      });
+  };
   useEffect(() => {
     getActivities();
-  }, [])
+  }, []);
 
+  const renderTodayActivities = () => {
+    function sameDay(d1, d2) {
+      return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
+    }
+
+    return activities.map((activity) => {
+      if (!sameDay(new Date(activity.date), new Date())) {
+        return;
+      }
+      return (
+        <div className="row">
+          <div className="col s12 m9 l9 TodayActivities">{activity.activity}</div>
+          <div className="col s12 m3 l3 TodayActivities">{activity.points}</div>
+        </div>
+      );
+    });
+  };
 
   return (
-    <div><h4>Start earning awards today!</h4>
-      <h5>Select a category, then activity.
-        <br />Enter amount of time doing activity.
-        <br />Enter date.
-        < br />Points will be calculated when time is entered.</h5>
+    <div>
+      <h4>Start ADULTING and earn awards today!</h4>
+      <h5>
+        Select a category, then activity.
+        <br />
+        Enter amount of time (in minutes) doing activity.
+        <br />
+        Enter date.
+        <br />
+        Points will be calculated when time is entered.
+      </h5>
       <div className="col s12 m12 l8 activityCard">
         <div className="card">
           <div className="card-image">
@@ -71,40 +100,49 @@ export default function Activities() {
           <p className="card-title green-text text-accent-3 center-align">What did I do today?</p>
           <div className="card-content">
             <select name="category" id="category" onChange={handleActivity} value={selected}>
-              <option disabled  value="Choose an Category"> Choose a Category</option>
-              {categories.map((c) => (<option key={`i - ${c}`} value={c.toLowerCase()}>{c}</option>))}
+              <option disabled value="Choose an Category">
+                {" "}
+                Choose a Category
+              </option>
+              {categories.map((c) => (
+                <option key={`i - ${c}`} value={c.toLowerCase()}>
+                  {c}
+                </option>
+              ))}
             </select>
-            <select name="activities" id="activities" value={activitySelected} onChange={e => setActivitySelected(e.target.value)}>
-              <option value="Choose an Activity" disabled> Choose an Activity</option>
-              {filterActivity.map((c) => (<option key={`i - ${c.activity}`} value={c._id}>{c.activity}</option>))}
+            <select name="activities" id="activities" value={activitySelected} onChange={(e) => setActivitySelected(e.target.value)}>
+              <option value="Choose an Activity" disabled>
+                {" "}
+                Choose an Activity
+              </option>
+              {filterActivity.map((c) => (
+                <option key={`i - ${c.activity}`} value={c._id}>
+                  {c.activity}
+                </option>
+              ))}
             </select>
             {/* <input placeholder="activity"></input> */}
             <input className="col s12 m12 l5" placeholder="time"></input>
             <div className="col s12 m12 l2"></div>
             <input className="col s12 m12 l5" type="date" id="date" name="date"></input>
-            <button className="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action" onClick={handleSubmit}>Submit
+            <button className="btn waves-effect waves-#69f0ae green accent-2" type="submit" name="action" onClick={handleSubmit}>
+              Submit
               <i className="material-icons right">send</i>
             </button>
-
           </div>
           <br />
-          <br />
-          <div className="container">
-            <div className="row">
-              <h5 className="center-align">I'm getting so much done!</h5>
-              <div className="col s12 m12 l5 todayActivities">
-                <input placeholder="category"></input>
-              </div>
-              <div className="col s12 m12 l5 todayActivities">
-                <input placeholder="activity"></input>
-              </div>
-              <div className="col s12 m12 l2 todayActivities">
-                <input placeholder="points"></input>
-              </div>
+          <div className="row">
+            <h5 className="center-align">I'm getting so much done today!</h5>
+            <div className="col s12 m9 l9 todayActivities">
+              <input placeholder="ACTIVITY"></input>
             </div>
+            <div className="col s12 m3 l3 todayActivities">
+              <input placeholder="POINTS"></input>
+            </div>
+            <div className="row">{renderTodayActivities()}</div>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
