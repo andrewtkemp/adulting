@@ -18,13 +18,11 @@ Gee whiz! Who knew being an adult would actually stink and be so time comsuming 
 - MongoDB
 - Mongoose
 - Express
-- Materialize - not talked about in class
+- Materialize
 - Material UI
-- Node packages we haven't used before:
-- passport
-- passport-local
-- crypto
-- body-parser
+- Passport
+- Crypto
+- Body-parser
 
 ## Click this link to try out this application ()
 
