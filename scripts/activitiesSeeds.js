@@ -425,8 +425,8 @@ const activitiesSeed = [
     level: 2
   },
   {
-    category: "Custom",
-    activity: "",
+    category: "Miscellaneous",
+    activity: "Get a Costco membership",
     level: 2
   }, 
 ];
