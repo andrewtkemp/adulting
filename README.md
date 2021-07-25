@@ -21,6 +21,7 @@ Gee whiz! Who knew being an adult would actually stink and be so time comsuming 
 - Materialize
 - Material UI
 - Passport
+- Passport Local
 - Crypto
 - Body-parser
 
