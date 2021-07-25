@@ -157,6 +157,8 @@ export default function Activities() {
               <div className="row">
                 {log.length !== 0 ? (
                   log.map((activity) => (
+
+                    // POINTS CALUCULATED //
                     <>
                       <p>{activity.activity.activity}</p> <p>{activity.duration * activity.activity.level}</p>
                     </>
