@@ -10,7 +10,7 @@
 
 ## Description
 
-Gee whiz! Who knew being an adult would actually stink and be so time comsuming with things that are just so boring? Why can't everything be just like a game or like in kindergarten? Remember when we earned points and awards for accomplising tasks? With the Adulting app, you gain experience every time you do something that's considered "adulting", like spending 30 minutes dealing with a customer service issue, answering email, etc. Level up and gain awards as you earn points.
+Gee whiz! Who knew being an adult would stink and be so time comsuming? This stuff is just so boring! Why can't everything be just like a game or like in kindergarten? Remember when we earned points and awards for accomplising tasks? With the Adulting app, you gain experience every time you do something that's considered "adulting", like spending 30 minutes dealing with a customer service issue, answering email, etc. Level up and gain awards as you earn points.
 
 ## Technology used
 

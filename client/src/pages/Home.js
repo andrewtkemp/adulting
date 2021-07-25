@@ -10,9 +10,9 @@ function Home() {
       <Nav />
       <main className="main-container" id="home">
         <div className="row">
-          <Badjokes/>
           <Activities />
           <Awards />
+          <Badjokes/>
         </div>
       </main>
     </div>

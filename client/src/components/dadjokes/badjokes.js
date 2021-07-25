@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState,useEffect } from "react";
-
-
+import "./BadJokesStyle.css"
 
 function Badjokes(props) {
 const[joke, setjokes]=useState()
@@ -29,19 +28,19 @@ const[joke, setjokes]=useState()
     // Update the document title using the browser API
    badjokes()
   },[]);
-  return (
-    <>
-      <a class="waves-effect waves-light btn modal-trigger" href="home">Modal</a>
 
-      <div id="modal1" class="modal modal-fixed-footer">
-        <div class="modal-content">
-          <h4>badjokes</h4>
-          <p></p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  return (
+   
+    <div class="row">
+    <div class="col s12 m12 l12">
+      <div class="card #69f0ae green accent-2">
+        <div class="card-content white-text">
+          <span class="card-title">Bad Joke of the Day</span>
+          <p>Have joke show up here</p>
         </div>
       </div>
-    </>)
+    </div>
+  </div>
+  )
 }
 export default Badjokes;
