@@ -29,9 +29,9 @@ Gee whiz! Who knew being an adult would actually stink and be so time comsuming 
 ## Click this link to try out this application ()
 
 ## Screenshots
-![adulting](src/assets/logIn.png)
-![adulting](src/assets/enterActivity.png)
-![adulting](src/assets/activityLog.png)
+![adulting](assets/logIn.png)
+![adulting](assets/enterActivity.png)
+![adulting](assets/activityLog.png)
 
 ## Future plans
 We have some great ideas for the future.  To name  few:
