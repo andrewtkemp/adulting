@@ -36,7 +36,7 @@ function Badjokes() {
       <div class="card #69f0ae green accent-2">
         <div class="card-content white-text">
           <span class="card-title">Bad Joke of the Day</span>
-          <p>Have joke show up here</p>
+          <p> {badjokes}</p>
           
 
 
