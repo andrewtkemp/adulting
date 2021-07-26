@@ -50,7 +50,7 @@ function Login(props) {
           </div>
           <div className="input-field ">
             <i className="material-icons prefix">security</i>
-            <input name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
+            <input type= "password" name="password"  placeholder="Password" onChange={(e) => setPassword(e.target.value)} id="icon_prefix" type="text" className="validate"></input>
           </div>
           <button className="submit" onClick={handleSubmit}>
             Submit{" "}
