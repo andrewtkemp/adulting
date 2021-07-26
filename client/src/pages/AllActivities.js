@@ -3,6 +3,7 @@ import Nav from "../components/Nav/Nav";
 import "./AllActivitiesStyle.css";
 import axios from "axios";
 import dayjs from "dayjs";
+import renderLogs from "../components/Activities/Activities";
 
 
 function AllActivities() {
@@ -21,14 +22,14 @@ function AllActivities() {
   const renderAllActivities = () => {
     return activities.map((activity) => {
       return (
-        <div className="row">
-          <div className="col s12 m2 l2 allActivities">{getDate(activity.date)}</div>
+        <div className="row"> {renderLogs} </div>
+        /* <div className="col s12 m2 l2 allActivities">{getDate(activity.date)}</div>
           <div className="col s12 m3 l3 allActivities">{activity.category}</div>
           <div className="col s12 m4 l4 allActivities">{activity.activity}</div>
           <div className="col s12 m2 l2 allActivities">{activity.points}</div>
-        </div>
-      );
-    });
+        </div> 
+      );  */
+    )});
   };
   useEffect(() => {
     getAllActivities();
