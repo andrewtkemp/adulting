@@ -35,7 +35,7 @@ const[joke, setjokes]=useState()
     <div class="col s12 m12 l12">
       <div class="card #69f0ae green accent-2">
         <div class="card-content white-text">
-          <span class="card-title">Bad Joke of the Day</span>
+          <h4 class="title">Bad Joke of the Day</h4>
           <p>Have joke show up here</p>
         </div>
       </div>

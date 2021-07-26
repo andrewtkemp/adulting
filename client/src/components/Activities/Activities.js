@@ -58,12 +58,12 @@ export default function Activities() {
       return (
         <React.Fragment>
           <div
-            className="col s9"
+            className="col s6 m9 l9"
             key={`iiiiiiiiii ${i}`}
           >
             {l.log.activity[0].activity}
           </div>
-          <div className="col s3">
+          <div className="col s6 m3 s3 points">
             {l.log.duration * l.log.activity[0].level}
           </div>
         </React.Fragment>
@@ -142,7 +142,7 @@ export default function Activities() {
           <p className="center-align">
             Select a category, then activity.
             <br />
-            Enter amount of time (in minutes) doing activity, then enter date.
+            Enter amount of time (in minutes) doing activity, and date.
             <br />
             Points will be calculated when time is entered.
           </p>
@@ -182,7 +182,7 @@ export default function Activities() {
             <input
               className="col s12 m12 l5"
               ref={time}
-              placeholder="time (in minutes)"
+              placeholder="time"
               type="number"
             ></input>
             <div className="col s12 m12 l2"></div>
@@ -205,10 +205,10 @@ export default function Activities() {
             <br />
             <div className="row">
               <h5 className="center-align">I'm getting so much done today!</h5>
-              <div className="col s6 m9 l9 todayActivities">
+              <div className="col s6 m9 l9">
                 <input placeholder="ACTIVITY"></input>
               </div>
-              <div className="col s6 m3 l3 todayActivities">
+              <div className="col s6 m3 l3">
                 <input placeholder="POINTS"></input>
               </div>
               <div className="row">{renderLogs()}</div>

@@ -8,6 +8,8 @@ import bronzeSilver from "../../assets/bronze-silverStar.png";
 import bronzeGold from "../../assets/bronze-silver-goldStar.png";
 
 
+
+
 function Awards() {
   function getPoints() {
     const pointsEarned = 300; //api.getPoints() CHANGE POINTS TO API CALL //
