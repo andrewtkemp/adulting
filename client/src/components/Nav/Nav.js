@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import "./NavStyle.css"
 
 function Nav() {
   const handleSubmit = (event) => {
@@ -30,9 +31,9 @@ function Nav() {
           <i className="material-icons">menu</i>
         </a>
         <ul className="right hide-on-med-and-down">
-          <li>
+          {/* <li>
             <a href="/AllActivities">Activity Log</a>
-          </li>
+          </li> */}
           <li>
             <a onClick={handleSubmit}>Log Out</a>
           </li>
@@ -40,9 +41,9 @@ function Nav() {
       </div>
 
       <ul className="sidenav" id="mobile-demo">
-        <li>
+        {/* <li>
           <a href="/AllActivities">Activity Log</a>
-        </li>
+        </li> */}
         <li>
           <a href="/login">Log Out</a>
         </li>

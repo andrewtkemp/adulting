@@ -34,6 +34,8 @@ Gee whiz! Who knew being an adult would stink and be so time comsuming? This stu
 
 ## Future plans
 We have some great ideas for the future.  To name  few:
+* Log of all activities on a separate page, and only today's activities listed on home page.
+* Dad Jokes would be a modal that pops up once a day.
 * Avatars that could grow up and be dressed in adult clothing, i.e. black knee socks with sandals
 * Social functionality
 * Add custom categories and activities
